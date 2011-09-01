@@ -1,0 +1,461 @@
+   1               		.file	"wiring_digital.c"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__CCP__  = 0x34
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+   8               		.global __do_copy_data
+   9               		.global __do_clear_bss
+  17               	.Ltext0:
+  18               		.section	.text.pinMode,"ax",@progbits
+  19               	.global	pinMode
+  21               	pinMode:
+  22               	.LFB7:
+  23               	.LSM0:
+  24               	.LVL0:
+  25               	/* prologue: function */
+  26               	/* frame size = 0 */
+  27               	.LBB2:
+  28               	.LSM1:
+  29 0000 482F      		mov r20,r24
+  30 0002 50E0      		ldi r21,lo8(0)
+  31 0004 CA01      		movw r24,r20
+  32               	.LVL1:
+  33 0006 8050      		subi r24,lo8(-(digital_pin_to_bit_mask_PGM))
+  34 0008 9040      		sbci r25,hi8(-(digital_pin_to_bit_mask_PGM))
+  35 000a FC01      		movw r30,r24
+  36               	/* #APP */
+  37               	 ;  32 "/Applications/Development/Arduino.app/Contents/Resources/Java/hardware/arduino/cores/arduin
+  38 000c 2491      		lpm r18, Z
+  39               		
+  40               	 ;  0 "" 2
+  41               	.LVL2:
+  42               	/* #NOAPP */
+  43               	.LBE2:
+  44               	.LBB3:
+  45               	.LSM2:
+  46 000e 4050      		subi r20,lo8(-(digital_pin_to_port_PGM))
+  47 0010 5040      		sbci r21,hi8(-(digital_pin_to_port_PGM))
+  48 0012 FA01      		movw r30,r20
+  49               	/* #APP */
+  50               	 ;  33 "/Applications/Development/Arduino.app/Contents/Resources/Java/hardware/arduino/cores/arduin
+  51 0014 8491      		lpm r24, Z
+  52               		
+  53               	 ;  0 "" 2
+  54               	.LVL3:
+  55               	/* #NOAPP */
+  56               	.LBE3:
+  57               	.LSM3:
+  58 0016 8823      		tst r24
+  59 0018 01F0      		breq .L4
+  60               	.LBB4:
+  61               	.LSM4:
+  62 001a E82F      		mov r30,r24
+  63               	.LVL4:
+  64 001c F0E0      		ldi r31,lo8(0)
+  65               	.LVL5:
+  66 001e EE0F      		lsl r30
+  67 0020 FF1F      		rol r31
+  68               	.LVL6:
+  69 0022 E050      		subi r30,lo8(-(port_to_mode_PGM))
+  70 0024 F040      		sbci r31,hi8(-(port_to_mode_PGM))
+  71               	/* #APP */
+  72               	 ;  39 "/Applications/Development/Arduino.app/Contents/Resources/Java/hardware/arduino/cores/arduin
+  73 0026 A591      		lpm r26, Z+
+  74 0028 B491      		lpm r27, Z
+  75               		
+  76               	 ;  0 "" 2
+  77               	.LVL7:
+  78               	/* #NOAPP */
+  79               	.LBE4:
+  80               	.LSM5:
+  81 002a 6623      		tst r22
+  82 002c 01F4      		brne .L3
+  83               	.LBB5:
+  84               	.LSM6:
+  85 002e 9FB7      		in r25,__SREG__
+  86               	.LVL8:
+  87               	.LSM7:
+  88               	/* #APP */
+  89               	 ;  43 "/Applications/Development/Arduino.app/Contents/Resources/Java/hardware/arduino/cores/arduin
+  90 0030 F894      		cli
+  91               	 ;  0 "" 2
+  92               	.LSM8:
+  93               	/* #NOAPP */
+  94 0032 8C91      		ld r24,X
+  95 0034 2095      		com r18
+  96 0036 8223      		and r24,r18
+  97 0038 8C93      		st X,r24
+  98               	.LSM9:
+  99 003a 9FBF      		out __SREG__,r25
+ 100 003c 0895      		ret
+ 101               	.LVL9:
+ 102               	.L3:
+ 103               	.LBE5:
+ 104               	.LBB6:
+ 105               	.LSM10:
+ 106 003e 9FB7      		in r25,__SREG__
+ 107               	.LVL10:
+ 108               	.LSM11:
+ 109               	/* #APP */
+ 110               	 ;  48 "/Applications/Development/Arduino.app/Contents/Resources/Java/hardware/arduino/cores/arduin
+ 111 0040 F894      		cli
+ 112               	 ;  0 "" 2
+ 113               	.LSM12:
+ 114               	/* #NOAPP */
+ 115 0042 8C91      		ld r24,X
+ 116 0044 822B      		or r24,r18
+ 117 0046 8C93      		st X,r24
+ 118               	.LSM13:
+ 119 0048 9FBF      		out __SREG__,r25
+ 120               	.LVL11:
+ 121               	.L4:
+ 122 004a 0895      		ret
+ 123               	.LBE6:
+ 124               	.LFE7:
+ 126               		.section	.text.turnOffPWM,"ax",@progbits
+ 128               	turnOffPWM:
+ 129               	.LFB8:
+ 130               	.LSM14:
+ 131               	.LVL12:
+ 132               	/* prologue: function */
+ 133               	/* frame size = 0 */
+ 134               	.LSM15:
+ 135 0000 8330      		cpi r24,lo8(3)
+ 136 0002 01F0      		breq .L9
+ 137 0004 8430      		cpi r24,lo8(4)
+ 138 0006 00F4      		brsh .L13
+ 139 0008 8130      		cpi r24,lo8(1)
+ 140 000a 01F0      		breq .L7
+ 141 000c 8230      		cpi r24,lo8(2)
+ 142 000e 01F4      		brne .L14
+ 143 0010 00C0      		rjmp .L17
+ 144               	.L13:
+ 145 0012 8630      		cpi r24,lo8(6)
+ 146 0014 01F0      		breq .L11
+ 147 0016 8730      		cpi r24,lo8(7)
+ 148 0018 01F0      		breq .L12
+ 149 001a 8430      		cpi r24,lo8(4)
+ 150 001c 01F4      		brne .L14
+ 151 001e 00C0      		rjmp .L18
+ 152               	.L9:
+ 153               	.LSM16:
+ 154 0020 8091 8000 		lds r24,128
+ 155               	.LVL13:
+ 156 0024 8F77      		andi r24,lo8(127)
+ 157 0026 00C0      		rjmp .L16
+ 158               	.LVL14:
+ 159               	.L18:
+ 160               	.LSM17:
+ 161 0028 8091 8000 		lds r24,128
+ 162               	.LVL15:
+ 163 002c 8F7D      		andi r24,lo8(-33)
+ 164               	.L16:
+ 165 002e 8093 8000 		sts 128,r24
+ 166 0032 0895      		ret
+ 167               	.LVL16:
+ 168               	.L7:
+ 169               	.LSM18:
+ 170 0034 84B5      		in r24,68-32
+ 171               	.LVL17:
+ 172 0036 8F77      		andi r24,lo8(127)
+ 173 0038 00C0      		rjmp .L15
+ 174               	.LVL18:
+ 175               	.L17:
+ 176               	.LSM19:
+ 177 003a 84B5      		in r24,68-32
+ 178               	.LVL19:
+ 179 003c 8F7D      		andi r24,lo8(-33)
+ 180               	.L15:
+ 181 003e 84BD      		out 68-32,r24
+ 182 0040 0895      		ret
+ 183               	.LVL20:
+ 184               	.L11:
+ 185               	.LSM20:
+ 186 0042 8091 B000 		lds r24,176
+ 187               	.LVL21:
+ 188 0046 8F77      		andi r24,lo8(127)
+ 189 0048 8093 B000 		sts 176,r24
+ 190 004c 0895      		ret
+ 191               	.LVL22:
+ 192               	.L12:
+ 193               	.LSM21:
+ 194 004e 8091 B000 		lds r24,176
+ 195               	.LVL23:
+ 196 0052 8F7D      		andi r24,lo8(-33)
+ 197 0054 8093 B000 		sts 176,r24
+ 198               	.LVL24:
+ 199               	.L14:
+ 200 0058 0895      		ret
+ 201               	.LFE8:
+ 203               		.section	.text.digitalWrite,"ax",@progbits
+ 204               	.global	digitalWrite
+ 206               	digitalWrite:
+ 207               	.LFB9:
+ 208               	.LSM22:
+ 209               	.LVL25:
+ 210 0000 FF92      		push r15
+ 211 0002 0F93      		push r16
+ 212 0004 1F93      		push r17
+ 213               	/* prologue: function */
+ 214               	/* frame size = 0 */
+ 215 0006 F62E      		mov r15,r22
+ 216               	.LBB7:
+ 217               	.LSM23:
+ 218 0008 482F      		mov r20,r24
+ 219 000a 50E0      		ldi r21,lo8(0)
+ 220 000c CA01      		movw r24,r20
+ 221               	.LVL26:
+ 222 000e 8050      		subi r24,lo8(-(digital_pin_to_timer_PGM))
+ 223 0010 9040      		sbci r25,hi8(-(digital_pin_to_timer_PGM))
+ 224 0012 FC01      		movw r30,r24
+ 225               	/* #APP */
+ 226               	 ;  126 "/Applications/Development/Arduino.app/Contents/Resources/Java/hardware/arduino/cores/ardui
+ 227 0014 2491      		lpm r18, Z
+ 228               		
+ 229               	 ;  0 "" 2
+ 230               	.LVL27:
+ 231               	/* #NOAPP */
+ 232               	.LBE7:
+ 233               	.LBB8:
+ 234               	.LSM24:
+ 235 0016 CA01      		movw r24,r20
+ 236 0018 8050      		subi r24,lo8(-(digital_pin_to_bit_mask_PGM))
+ 237 001a 9040      		sbci r25,hi8(-(digital_pin_to_bit_mask_PGM))
+ 238 001c FC01      		movw r30,r24
+ 239               	/* #APP */
+ 240               	 ;  127 "/Applications/Development/Arduino.app/Contents/Resources/Java/hardware/arduino/cores/ardui
+ 241 001e 1491      		lpm r17, Z
+ 242               		
+ 243               	 ;  0 "" 2
+ 244               	.LVL28:
+ 245               	/* #NOAPP */
+ 246               	.LBE8:
+ 247               	.LBB9:
+ 248               	.LSM25:
+ 249 0020 4050      		subi r20,lo8(-(digital_pin_to_port_PGM))
+ 250 0022 5040      		sbci r21,hi8(-(digital_pin_to_port_PGM))
+ 251 0024 FA01      		movw r30,r20
+ 252               	/* #APP */
+ 253               	 ;  128 "/Applications/Development/Arduino.app/Contents/Resources/Java/hardware/arduino/cores/ardui
+ 254 0026 0491      		lpm r16, Z
+ 255               		
+ 256               	 ;  0 "" 2
+ 257               	.LVL29:
+ 258               	/* #NOAPP */
+ 259               	.LBE9:
+ 260               	.LSM26:
+ 261 0028 0023      		tst r16
+ 262 002a 01F0      		breq .L23
+ 263               	.LVL30:
+ 264               	.LSM27:
+ 265 002c 2223      		tst r18
+ 266 002e 01F0      		breq .L21
+ 267 0030 822F      		mov r24,r18
+ 268 0032 0E94 0000 		call turnOffPWM
+ 269               	.LVL31:
+ 270               	.L21:
+ 271               	.LBB10:
+ 272               	.LSM28:
+ 273 0036 E02F      		mov r30,r16
+ 274               	.LVL32:
+ 275 0038 F0E0      		ldi r31,lo8(0)
+ 276               	.LVL33:
+ 277 003a EE0F      		lsl r30
+ 278 003c FF1F      		rol r31
+ 279               	.LVL34:
+ 280 003e E050      		subi r30,lo8(-(port_to_output_PGM))
+ 281 0040 F040      		sbci r31,hi8(-(port_to_output_PGM))
+ 282               	/* #APP */
+ 283               	 ;  137 "/Applications/Development/Arduino.app/Contents/Resources/Java/hardware/arduino/cores/ardui
+ 284 0042 A591      		lpm r26, Z+
+ 285 0044 B491      		lpm r27, Z
+ 286               		
+ 287               	 ;  0 "" 2
+ 288               	.LVL35:
+ 289               	/* #NOAPP */
+ 290               	.LBE10:
+ 291               	.LSM29:
+ 292 0046 FF20      		tst r15
+ 293 0048 01F4      		brne .L22
+ 294               	.LBB11:
+ 295               	.LSM30:
+ 296 004a 9FB7      		in r25,__SREG__
+ 297               	.LVL36:
+ 298               	.LSM31:
+ 299               	/* #APP */
+ 300               	 ;  141 "/Applications/Development/Arduino.app/Contents/Resources/Java/hardware/arduino/cores/ardui
+ 301 004c F894      		cli
+ 302               	 ;  0 "" 2
+ 303               	.LSM32:
+ 304               	/* #NOAPP */
+ 305 004e 8C91      		ld r24,X
+ 306 0050 1095      		com r17
+ 307 0052 8123      		and r24,r17
+ 308 0054 00C0      		rjmp .L24
+ 309               	.LVL37:
+ 310               	.L22:
+ 311               	.LBE11:
+ 312               	.LBB12:
+ 313               	.LSM33:
+ 314 0056 9FB7      		in r25,__SREG__
+ 315               	.LVL38:
+ 316               	.LSM34:
+ 317               	/* #APP */
+ 318               	 ;  146 "/Applications/Development/Arduino.app/Contents/Resources/Java/hardware/arduino/cores/ardui
+ 319 0058 F894      		cli
+ 320               	 ;  0 "" 2
+ 321               	.LSM35:
+ 322               	/* #NOAPP */
+ 323 005a 8C91      		ld r24,X
+ 324 005c 812B      		or r24,r17
+ 325               	.LVL39:
+ 326               	.L24:
+ 327 005e 8C93      		st X,r24
+ 328               	.LSM36:
+ 329 0060 9FBF      		out __SREG__,r25
+ 330               	.L23:
+ 331               	/* epilogue start */
+ 332               	.LBE12:
+ 333               	.LSM37:
+ 334 0062 1F91      		pop r17
+ 335               	.LVL40:
+ 336 0064 0F91      		pop r16
+ 337               	.LVL41:
+ 338 0066 FF90      		pop r15
+ 339               	.LVL42:
+ 340 0068 0895      		ret
+ 341               	.LFE9:
+ 343               		.section	.text.digitalRead,"ax",@progbits
+ 344               	.global	digitalRead
+ 346               	digitalRead:
+ 347               	.LFB10:
+ 348               	.LSM38:
+ 349               	.LVL43:
+ 350 0000 0F93      		push r16
+ 351 0002 1F93      		push r17
+ 352               	/* prologue: function */
+ 353               	/* frame size = 0 */
+ 354               	.LBB13:
+ 355               	.LSM39:
+ 356 0004 482F      		mov r20,r24
+ 357 0006 50E0      		ldi r21,lo8(0)
+ 358 0008 CA01      		movw r24,r20
+ 359               	.LVL44:
+ 360 000a 8050      		subi r24,lo8(-(digital_pin_to_timer_PGM))
+ 361 000c 9040      		sbci r25,hi8(-(digital_pin_to_timer_PGM))
+ 362 000e FC01      		movw r30,r24
+ 363               	/* #APP */
+ 364               	 ;  154 "/Applications/Development/Arduino.app/Contents/Resources/Java/hardware/arduino/cores/ardui
+ 365 0010 2491      		lpm r18, Z
+ 366               		
+ 367               	 ;  0 "" 2
+ 368               	.LVL45:
+ 369               	/* #NOAPP */
+ 370               	.LBE13:
+ 371               	.LBB14:
+ 372               	.LSM40:
+ 373 0012 CA01      		movw r24,r20
+ 374 0014 8050      		subi r24,lo8(-(digital_pin_to_bit_mask_PGM))
+ 375 0016 9040      		sbci r25,hi8(-(digital_pin_to_bit_mask_PGM))
+ 376 0018 FC01      		movw r30,r24
+ 377               	/* #APP */
+ 378               	 ;  155 "/Applications/Development/Arduino.app/Contents/Resources/Java/hardware/arduino/cores/ardui
+ 379 001a 0491      		lpm r16, Z
+ 380               		
+ 381               	 ;  0 "" 2
+ 382               	.LVL46:
+ 383               	/* #NOAPP */
+ 384               	.LBE14:
+ 385               	.LBB15:
+ 386               	.LSM41:
+ 387 001c 4050      		subi r20,lo8(-(digital_pin_to_port_PGM))
+ 388 001e 5040      		sbci r21,hi8(-(digital_pin_to_port_PGM))
+ 389 0020 FA01      		movw r30,r20
+ 390               	/* #APP */
+ 391               	 ;  156 "/Applications/Development/Arduino.app/Contents/Resources/Java/hardware/arduino/cores/ardui
+ 392 0022 1491      		lpm r17, Z
+ 393               		
+ 394               	 ;  0 "" 2
+ 395               	.LVL47:
+ 396               	/* #NOAPP */
+ 397               	.LBE15:
+ 398               	.LSM42:
+ 399 0024 1123      		tst r17
+ 400 0026 01F4      		brne .L26
+ 401 0028 20E0      		ldi r18,lo8(0)
+ 402 002a 30E0      		ldi r19,hi8(0)
+ 403               	.LVL48:
+ 404 002c 00C0      		rjmp .L27
+ 405               	.LVL49:
+ 406               	.L26:
+ 407               	.LSM43:
+ 408 002e 2223      		tst r18
+ 409 0030 01F0      		breq .L28
+ 410 0032 822F      		mov r24,r18
+ 411 0034 0E94 0000 		call turnOffPWM
+ 412               	.LVL50:
+ 413               	.L28:
+ 414               	.LBB16:
+ 415               	.LSM44:
+ 416 0038 812F      		mov r24,r17
+ 417               	.LVL51:
+ 418 003a 90E0      		ldi r25,lo8(0)
+ 419               	.LVL52:
+ 420 003c 880F      		lsl r24
+ 421 003e 991F      		rol r25
+ 422               	.LVL53:
+ 423 0040 8050      		subi r24,lo8(-(port_to_input_PGM))
+ 424 0042 9040      		sbci r25,hi8(-(port_to_input_PGM))
+ 425 0044 FC01      		movw r30,r24
+ 426               	/* #APP */
+ 427               	 ;  164 "/Applications/Development/Arduino.app/Contents/Resources/Java/hardware/arduino/cores/ardui
+ 428 0046 A591      		lpm r26, Z+
+ 429 0048 B491      		lpm r27, Z
+ 430               		
+ 431               	 ;  0 "" 2
+ 432               	.LVL54:
+ 433               	/* #NOAPP */
+ 434               	.LBE16:
+ 435 004a 8C91      		ld r24,X
+ 436               	.LVL55:
+ 437 004c 20E0      		ldi r18,lo8(0)
+ 438 004e 30E0      		ldi r19,hi8(0)
+ 439 0050 8023      		and r24,r16
+ 440 0052 01F0      		breq .L27
+ 441 0054 21E0      		ldi r18,lo8(1)
+ 442 0056 30E0      		ldi r19,hi8(1)
+ 443               	.L27:
+ 444               	.LSM45:
+ 445 0058 C901      		movw r24,r18
+ 446               	/* epilogue start */
+ 447 005a 1F91      		pop r17
+ 448               	.LVL56:
+ 449 005c 0F91      		pop r16
+ 450               	.LVL57:
+ 451 005e 0895      		ret
+ 452               	.LFE10:
+ 502               	.Letext0:
+DEFINED SYMBOLS
+                            *ABS*:00000000 wiring_digital.c
+/var/folders/6v/2vwt01v529l7cbx7ts4b06bm0000gn/T//cc2Z3FH8.s:2      *ABS*:0000003f __SREG__
+/var/folders/6v/2vwt01v529l7cbx7ts4b06bm0000gn/T//cc2Z3FH8.s:3      *ABS*:0000003e __SP_H__
+/var/folders/6v/2vwt01v529l7cbx7ts4b06bm0000gn/T//cc2Z3FH8.s:4      *ABS*:0000003d __SP_L__
+/var/folders/6v/2vwt01v529l7cbx7ts4b06bm0000gn/T//cc2Z3FH8.s:5      *ABS*:00000034 __CCP__
+/var/folders/6v/2vwt01v529l7cbx7ts4b06bm0000gn/T//cc2Z3FH8.s:6      *ABS*:00000000 __tmp_reg__
+/var/folders/6v/2vwt01v529l7cbx7ts4b06bm0000gn/T//cc2Z3FH8.s:7      *ABS*:00000001 __zero_reg__
+/var/folders/6v/2vwt01v529l7cbx7ts4b06bm0000gn/T//cc2Z3FH8.s:21     .text.pinMode:00000000 pinMode
+/var/folders/6v/2vwt01v529l7cbx7ts4b06bm0000gn/T//cc2Z3FH8.s:128    .text.turnOffPWM:00000000 turnOffPWM
+/var/folders/6v/2vwt01v529l7cbx7ts4b06bm0000gn/T//cc2Z3FH8.s:206    .text.digitalWrite:00000000 digitalWrite
+/var/folders/6v/2vwt01v529l7cbx7ts4b06bm0000gn/T//cc2Z3FH8.s:346    .text.digitalRead:00000000 digitalRead
+
+UNDEFINED SYMBOLS
+__do_copy_data
+__do_clear_bss
+digital_pin_to_bit_mask_PGM
+digital_pin_to_port_PGM
+port_to_mode_PGM
+digital_pin_to_timer_PGM
+port_to_output_PGM
+port_to_input_PGM

@@ -1,0 +1,185 @@
+   1               		.file	"wiring_shift.c"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__CCP__  = 0x34
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+   8               		.global __do_copy_data
+   9               		.global __do_clear_bss
+  17               	.Ltext0:
+  18               		.section	.text.shiftOut,"ax",@progbits
+  19               	.global	shiftOut
+  21               	shiftOut:
+  22               	.LFB8:
+  23               	.LSM0:
+  24               	.LVL0:
+  25 0000 A0E0      		ldi r26,lo8(0)
+  26 0002 B0E0      		ldi r27,hi8(0)
+  27 0004 E0E0      		ldi r30,lo8(gs(1f))
+  28 0006 F0E0      		ldi r31,hi8(gs(1f))
+  29 0008 0C94 0000 		jmp __prologue_saves__+((18 - 9) * 2)
+  30               	1:
+  31               	/* prologue: function */
+  32               	/* frame size = 0 */
+  33 000c E82E      		mov r14,r24
+  34 000e F62E      		mov r15,r22
+  35 0010 B42E      		mov r11,r20
+  36               	.LSM1:
+  37 0012 C7E0      		ldi r28,lo8(7)
+  38 0014 D0E0      		ldi r29,hi8(7)
+  39 0016 022F      		mov r16,r18
+  40 0018 10E0      		ldi r17,lo8(0)
+  41               	.LVL1:
+  42               	.LSM2:
+  43 001a 87E0      		ldi r24,lo8(7)
+  44 001c C82E      		mov r12,r24
+  45 001e D12C      		mov r13,__zero_reg__
+  46               	.LVL2:
+  47               	.L4:
+  48               	.LSM3:
+  49 0020 BB20      		tst r11
+  50 0022 01F4      		brne .L2
+  51               	.LSM4:
+  52 0024 B601      		movw r22,r12
+  53 0026 6C1B      		sub r22,r28
+  54 0028 7D0B      		sbc r23,r29
+  55 002a C801      		movw r24,r16
+  56 002c 00C0      		rjmp 2f
+  57 002e 9595      	1:	asr r25
+  58 0030 8795      		ror r24
+  59 0032 6A95      	2:	dec r22
+  60 0034 02F4      		brpl 1b
+  61 0036 BC01      		movw r22,r24
+  62 0038 00C0      		rjmp .L7
+  63               	.LVL3:
+  64               	.L2:
+  65               	.LSM5:
+  66 003a B801      		movw r22,r16
+  67 003c 0C2E      		mov r0,r28
+  68 003e 00C0      		rjmp 2f
+  69 0040 7595      	1:	asr r23
+  70 0042 6795      		ror r22
+  71 0044 0A94      	2:	dec r0
+  72 0046 02F4      		brpl 1b
+  73               	.L7:
+  74 0048 6170      		andi r22,lo8(1)
+  75 004a 8E2D      		mov r24,r14
+  76 004c 0E94 0000 		call digitalWrite
+  77               	.LSM6:
+  78 0050 8F2D      		mov r24,r15
+  79 0052 61E0      		ldi r22,lo8(1)
+  80 0054 0E94 0000 		call digitalWrite
+  81               	.LSM7:
+  82 0058 8F2D      		mov r24,r15
+  83 005a 60E0      		ldi r22,lo8(0)
+  84 005c 0E94 0000 		call digitalWrite
+  85 0060 2197      		sbiw r28,1
+  86               	.LSM8:
+  87 0062 9FEF      		ldi r25,hi8(-1)
+  88 0064 CF3F      		cpi r28,lo8(-1)
+  89 0066 D907      		cpc r29,r25
+  90 0068 01F4      		brne .L4
+  91               	/* epilogue start */
+  92               	.LSM9:
+  93 006a CDB7      		in r28,__SP_L__
+  94 006c DEB7      		in r29,__SP_H__
+  95 006e E9E0      		ldi r30, lo8(9)
+  96 0070 0C94 0000 		jmp __epilogue_restores__ + ((18 - 9) * 2)
+  97               	.LFE8:
+  99               		.section	.text.shiftIn,"ax",@progbits
+ 100               	.global	shiftIn
+ 102               	shiftIn:
+ 103               	.LFB7:
+ 104               	.LSM10:
+ 105               	.LVL4:
+ 106 0000 A0E0      		ldi r26,lo8(0)
+ 107 0002 B0E0      		ldi r27,hi8(0)
+ 108 0004 E0E0      		ldi r30,lo8(gs(1f))
+ 109 0006 F0E0      		ldi r31,hi8(gs(1f))
+ 110 0008 0C94 0000 		jmp __prologue_saves__+((18 - 8) * 2)
+ 111               	1:
+ 112               	/* prologue: function */
+ 113               	/* frame size = 0 */
+ 114 000c F82E      		mov r15,r24
+ 115 000e 062F      		mov r16,r22
+ 116 0010 E42E      		mov r14,r20
+ 117               	.LSM11:
+ 118 0012 10E0      		ldi r17,lo8(0)
+ 119               	.LVL5:
+ 120 0014 C7E0      		ldi r28,lo8(7)
+ 121 0016 D0E0      		ldi r29,hi8(7)
+ 122               	.LSM12:
+ 123 0018 97E0      		ldi r25,lo8(7)
+ 124 001a C92E      		mov r12,r25
+ 125 001c D12C      		mov r13,__zero_reg__
+ 126               	.LVL6:
+ 127               	.L11:
+ 128               	.LSM13:
+ 129 001e 802F      		mov r24,r16
+ 130 0020 61E0      		ldi r22,lo8(1)
+ 131 0022 0E94 0000 		call digitalWrite
+ 132               	.LSM14:
+ 133 0026 EE20      		tst r14
+ 134 0028 01F4      		brne .L9
+ 135               	.LSM15:
+ 136 002a 8F2D      		mov r24,r15
+ 137 002c 0E94 0000 		call digitalRead
+ 138 0030 9601      		movw r18,r12
+ 139 0032 2C1B      		sub r18,r28
+ 140 0034 3D0B      		sbc r19,r29
+ 141 0036 00C0      		rjmp 2f
+ 142 0038 880F      	1:	lsl r24
+ 143 003a 991F      		rol r25
+ 144 003c 2A95      	2:	dec r18
+ 145 003e 02F4      		brpl 1b
+ 146 0040 00C0      		rjmp .L14
+ 147               	.L9:
+ 148               	.LSM16:
+ 149 0042 8F2D      		mov r24,r15
+ 150 0044 0E94 0000 		call digitalRead
+ 151 0048 0C2E      		mov r0,r28
+ 152 004a 00C0      		rjmp 2f
+ 153 004c 880F      	1:	lsl r24
+ 154 004e 991F      		rol r25
+ 155 0050 0A94      	2:	dec r0
+ 156 0052 02F4      		brpl 1b
+ 157               	.L14:
+ 158 0054 182B      		or r17,r24
+ 159               	.LSM17:
+ 160 0056 802F      		mov r24,r16
+ 161 0058 60E0      		ldi r22,lo8(0)
+ 162 005a 0E94 0000 		call digitalWrite
+ 163 005e 2197      		sbiw r28,1
+ 164               	.LSM18:
+ 165 0060 8FEF      		ldi r24,hi8(-1)
+ 166 0062 CF3F      		cpi r28,lo8(-1)
+ 167 0064 D807      		cpc r29,r24
+ 168 0066 01F4      		brne .L11
+ 169               	.LSM19:
+ 170 0068 812F      		mov r24,r17
+ 171               	/* epilogue start */
+ 172 006a CDB7      		in r28,__SP_L__
+ 173 006c DEB7      		in r29,__SP_H__
+ 174 006e E8E0      		ldi r30, lo8(8)
+ 175 0070 0C94 0000 		jmp __epilogue_restores__ + ((18 - 8) * 2)
+ 176               	.LFE7:
+ 210               	.Letext0:
+DEFINED SYMBOLS
+                            *ABS*:00000000 wiring_shift.c
+/var/folders/6v/2vwt01v529l7cbx7ts4b06bm0000gn/T//cc6bIkct.s:2      *ABS*:0000003f __SREG__
+/var/folders/6v/2vwt01v529l7cbx7ts4b06bm0000gn/T//cc6bIkct.s:3      *ABS*:0000003e __SP_H__
+/var/folders/6v/2vwt01v529l7cbx7ts4b06bm0000gn/T//cc6bIkct.s:4      *ABS*:0000003d __SP_L__
+/var/folders/6v/2vwt01v529l7cbx7ts4b06bm0000gn/T//cc6bIkct.s:5      *ABS*:00000034 __CCP__
+/var/folders/6v/2vwt01v529l7cbx7ts4b06bm0000gn/T//cc6bIkct.s:6      *ABS*:00000000 __tmp_reg__
+/var/folders/6v/2vwt01v529l7cbx7ts4b06bm0000gn/T//cc6bIkct.s:7      *ABS*:00000001 __zero_reg__
+/var/folders/6v/2vwt01v529l7cbx7ts4b06bm0000gn/T//cc6bIkct.s:21     .text.shiftOut:00000000 shiftOut
+/var/folders/6v/2vwt01v529l7cbx7ts4b06bm0000gn/T//cc6bIkct.s:102    .text.shiftIn:00000000 shiftIn
+
+UNDEFINED SYMBOLS
+__do_copy_data
+__do_clear_bss
+__prologue_saves__
+digitalWrite
+__epilogue_restores__
+digitalRead

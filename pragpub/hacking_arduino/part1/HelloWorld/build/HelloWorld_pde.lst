@@ -1,0 +1,77 @@
+   1               		.file	"HelloWorld_pde.cpp"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__CCP__  = 0x34
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+   8               		.global __do_copy_data
+   9               		.global __do_clear_bss
+  17               	.Ltext0:
+  18               		.data
+  19               	.LC0:
+  20 0000 4865 6C6C 		.string	"Hello, world!"
+  20      6F2C 2077 
+  20      6F72 6C64 
+  20      2100 
+  21               		.section	.text.loop,"ax",@progbits
+  22               	.global	loop
+  24               	loop:
+  25               	.LFB28:
+  26               	.LSM0:
+  27               	/* prologue: function */
+  28               	/* frame size = 0 */
+  29               	.LSM1:
+  30 0000 80E0      		ldi r24,lo8(Serial)
+  31 0002 90E0      		ldi r25,hi8(Serial)
+  32 0004 60E0      		ldi r22,lo8(.LC0)
+  33 0006 70E0      		ldi r23,hi8(.LC0)
+  34 0008 0E94 0000 		call _ZN5Print7printlnEPKc
+  35               	.LSM2:
+  36 000c 68EE      		ldi r22,lo8(1000)
+  37 000e 73E0      		ldi r23,hi8(1000)
+  38 0010 80E0      		ldi r24,hlo8(1000)
+  39 0012 90E0      		ldi r25,hhi8(1000)
+  40 0014 0E94 0000 		call delay
+  41               	/* epilogue start */
+  42               	.LSM3:
+  43 0018 0895      		ret
+  44               	.LFE28:
+  46               		.section	.text.setup,"ax",@progbits
+  47               	.global	setup
+  49               	setup:
+  50               	.LFB27:
+  51               	.LSM4:
+  52               	/* prologue: function */
+  53               	/* frame size = 0 */
+  54               	.LSM5:
+  55 0000 80E0      		ldi r24,lo8(Serial)
+  56 0002 90E0      		ldi r25,hi8(Serial)
+  57 0004 40E8      		ldi r20,lo8(9600)
+  58 0006 55E2      		ldi r21,hi8(9600)
+  59 0008 60E0      		ldi r22,hlo8(9600)
+  60 000a 70E0      		ldi r23,hhi8(9600)
+  61 000c 0E94 0000 		call _ZN14HardwareSerial5beginEl
+  62               	/* epilogue start */
+  63               	.LSM6:
+  64 0010 0895      		ret
+  65               	.LFE27:
+  99               	.Letext0:
+DEFINED SYMBOLS
+                            *ABS*:00000000 HelloWorld_pde.cpp
+/var/folders/6v/2vwt01v529l7cbx7ts4b06bm0000gn/T//ccAN8RuW.s:2      *ABS*:0000003f __SREG__
+/var/folders/6v/2vwt01v529l7cbx7ts4b06bm0000gn/T//ccAN8RuW.s:3      *ABS*:0000003e __SP_H__
+/var/folders/6v/2vwt01v529l7cbx7ts4b06bm0000gn/T//ccAN8RuW.s:4      *ABS*:0000003d __SP_L__
+/var/folders/6v/2vwt01v529l7cbx7ts4b06bm0000gn/T//ccAN8RuW.s:5      *ABS*:00000034 __CCP__
+/var/folders/6v/2vwt01v529l7cbx7ts4b06bm0000gn/T//ccAN8RuW.s:6      *ABS*:00000000 __tmp_reg__
+/var/folders/6v/2vwt01v529l7cbx7ts4b06bm0000gn/T//ccAN8RuW.s:7      *ABS*:00000001 __zero_reg__
+/var/folders/6v/2vwt01v529l7cbx7ts4b06bm0000gn/T//ccAN8RuW.s:24     .text.loop:00000000 loop
+/var/folders/6v/2vwt01v529l7cbx7ts4b06bm0000gn/T//ccAN8RuW.s:49     .text.setup:00000000 setup
+
+UNDEFINED SYMBOLS
+__do_copy_data
+__do_clear_bss
+Serial
+_ZN5Print7printlnEPKc
+delay
+_ZN14HardwareSerial5beginEl

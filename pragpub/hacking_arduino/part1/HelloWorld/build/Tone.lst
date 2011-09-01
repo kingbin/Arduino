@@ -1,0 +1,1000 @@
+   1               		.file	"Tone.cpp"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__CCP__  = 0x34
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+   8               		.global __do_copy_data
+   9               		.global __do_clear_bss
+  17               	.Ltext0:
+  18               		.section	.text._Z12disableTimerh,"ax",@progbits
+  19               	.global	disableTimer(unsigned char)
+  21               	disableTimer(unsigned char):
+  22               	.LFB4:
+  23               	.LSM0:
+  24               	.LVL0:
+  25               	/* prologue: function */
+  26               	/* frame size = 0 */
+  27               	.LSM1:
+  28 0000 8130      		cpi r24,lo8(1)
+  29 0002 01F0      		breq .L4
+  30 0004 8130      		cpi r24,lo8(1)
+  31 0006 00F0      		brlo .L3
+  32 0008 8230      		cpi r24,lo8(2)
+  33 000a 01F4      		brne .L6
+  34 000c 00C0      		rjmp .L7
+  35               	.L3:
+  36               	.LSM2:
+  37 000e 1092 6E00 		sts 110,__zero_reg__
+  38 0012 0895      		ret
+  39               	.L4:
+  40               	.LSM3:
+  41 0014 8091 6F00 		lds r24,111
+  42               	.LVL1:
+  43 0018 8D7F      		andi r24,lo8(-3)
+  44 001a 8093 6F00 		sts 111,r24
+  45 001e 0895      		ret
+  46               	.LVL2:
+  47               	.L7:
+  48               	.LSM4:
+  49 0020 8091 7000 		lds r24,112
+  50               	.LVL3:
+  51 0024 8D7F      		andi r24,lo8(-3)
+  52 0026 8093 7000 		sts 112,r24
+  53               	.LSM5:
+  54 002a 81E0      		ldi r24,lo8(1)
+  55 002c 8093 B000 		sts 176,r24
+  56               	.LSM6:
+  57 0030 8091 B100 		lds r24,177
+  58 0034 887F      		andi r24,lo8(-8)
+  59 0036 8460      		ori r24,lo8(4)
+  60 0038 8093 B100 		sts 177,r24
+  61               	.LSM7:
+  62 003c 1092 B300 		sts 179,__zero_reg__
+  63               	.LVL4:
+  64               	.L6:
+  65 0040 0895      		ret
+  66               	.LFE4:
+  68               		.section	.text._Z6noToneh,"ax",@progbits
+  69               	.global	noTone(unsigned char)
+  71               	noTone(unsigned char):
+  72               	.LFB5:
+  73               	.LSM8:
+  74               	.LVL5:
+  75 0000 1F93      		push r17
+  76               	/* prologue: function */
+  77               	/* frame size = 0 */
+  78 0002 182F      		mov r17,r24
+  79               	.LBB2:
+  80               	.LBB3:
+  81               	.LSM9:
+  82 0004 8091 0000 		lds r24,tone_pins
+  83               	.LVL6:
+  84 0008 8117      		cp r24,r17
+  85 000a 01F0      		breq .L9
+  86 000c 9FEF      		ldi r25,lo8(-1)
+  87               	.LVL7:
+  88 000e 00C0      		rjmp .L10
+  89               	.LVL8:
+  90               	.L9:
+  91               	.LBB4:
+  92               	.LSM10:
+  93 0010 E0E0      		ldi r30,lo8(tone_pin_to_timer_PGM)
+  94 0012 F0E0      		ldi r31,hi8(tone_pin_to_timer_PGM)
+  95               	/* #APP */
+  96               	 ;  473 "/Applications/Development/Arduino.app/Contents/Resources/Java/hardware/arduino/cores/ardui
+  97 0014 9491      		lpm r25, Z
+  98               		
+  99               	 ;  0 "" 2
+ 100               	.LVL9:
+ 101               	/* #NOAPP */
+ 102               	.LBE4:
+ 103               	.LSM11:
+ 104 0016 8FEF      		ldi r24,lo8(-1)
+ 105 0018 8093 0000 		sts tone_pins,r24
+ 106               	.L10:
+ 107               	.LBE3:
+ 108               	.LSM12:
+ 109 001c 892F      		mov r24,r25
+ 110 001e 0E94 0000 		call disableTimer(unsigned char)
+ 111               	.LVL10:
+ 112               	.LSM13:
+ 113 0022 812F      		mov r24,r17
+ 114 0024 60E0      		ldi r22,lo8(0)
+ 115 0026 0E94 0000 		call digitalWrite
+ 116               	/* epilogue start */
+ 117               	.LBE2:
+ 118               	.LSM14:
+ 119 002a 1F91      		pop r17
+ 120               	.LVL11:
+ 121 002c 0895      		ret
+ 122               	.LFE5:
+ 124               		.section	.text.__vector_7,"ax",@progbits
+ 125               	.global	__vector_7
+ 127               	__vector_7:
+ 128               	.LFB6:
+ 129               	.LSM15:
+ 130 0000 1F92      		push __zero_reg__
+ 131 0002 0F92      		push r0
+ 132 0004 0FB6      		in r0,__SREG__
+ 133 0006 0F92      		push r0
+ 134 0008 1124      		clr __zero_reg__
+ 135 000a 2F93      		push r18
+ 136 000c 3F93      		push r19
+ 137 000e 4F93      		push r20
+ 138 0010 5F93      		push r21
+ 139 0012 6F93      		push r22
+ 140 0014 7F93      		push r23
+ 141 0016 8F93      		push r24
+ 142 0018 9F93      		push r25
+ 143 001a AF93      		push r26
+ 144 001c BF93      		push r27
+ 145 001e EF93      		push r30
+ 146 0020 FF93      		push r31
+ 147               	/* prologue: Signal */
+ 148               	/* frame size = 0 */
+ 149               	.LSM16:
+ 150 0022 8091 0000 		lds r24,timer2_toggle_count
+ 151 0026 9091 0000 		lds r25,(timer2_toggle_count)+1
+ 152 002a A091 0000 		lds r26,(timer2_toggle_count)+2
+ 153 002e B091 0000 		lds r27,(timer2_toggle_count)+3
+ 154 0032 0097      		sbiw r24,0
+ 155 0034 A105      		cpc r26,__zero_reg__
+ 156 0036 B105      		cpc r27,__zero_reg__
+ 157 0038 01F0      		breq .L13
+ 158               	.LSM17:
+ 159 003a E091 0000 		lds r30,timer2_pin_port
+ 160 003e F091 0000 		lds r31,(timer2_pin_port)+1
+ 161 0042 8081      		ld r24,Z
+ 162 0044 9091 0000 		lds r25,timer2_pin_mask
+ 163 0048 8927      		eor r24,r25
+ 164 004a 8083      		st Z,r24
+ 165               	.LSM18:
+ 166 004c 8091 0000 		lds r24,timer2_toggle_count
+ 167 0050 9091 0000 		lds r25,(timer2_toggle_count)+1
+ 168 0054 A091 0000 		lds r26,(timer2_toggle_count)+2
+ 169 0058 B091 0000 		lds r27,(timer2_toggle_count)+3
+ 170 005c 1816      		cp __zero_reg__,r24
+ 171 005e 1906      		cpc __zero_reg__,r25
+ 172 0060 1A06      		cpc __zero_reg__,r26
+ 173 0062 1B06      		cpc __zero_reg__,r27
+ 174 0064 04F4      		brge .L15
+ 175               	.LSM19:
+ 176 0066 8091 0000 		lds r24,timer2_toggle_count
+ 177 006a 9091 0000 		lds r25,(timer2_toggle_count)+1
+ 178 006e A091 0000 		lds r26,(timer2_toggle_count)+2
+ 179 0072 B091 0000 		lds r27,(timer2_toggle_count)+3
+ 180 0076 0197      		sbiw r24,1
+ 181 0078 A109      		sbc r26,__zero_reg__
+ 182 007a B109      		sbc r27,__zero_reg__
+ 183 007c 8093 0000 		sts timer2_toggle_count,r24
+ 184 0080 9093 0000 		sts (timer2_toggle_count)+1,r25
+ 185 0084 A093 0000 		sts (timer2_toggle_count)+2,r26
+ 186 0088 B093 0000 		sts (timer2_toggle_count)+3,r27
+ 187 008c 00C0      		rjmp .L15
+ 188               	.L13:
+ 189               	.LSM20:
+ 190 008e 8091 0000 		lds r24,tone_pins
+ 191 0092 0E94 0000 		call noTone(unsigned char)
+ 192               	.L15:
+ 193               	/* epilogue start */
+ 194               	.LSM21:
+ 195 0096 FF91      		pop r31
+ 196 0098 EF91      		pop r30
+ 197 009a BF91      		pop r27
+ 198 009c AF91      		pop r26
+ 199 009e 9F91      		pop r25
+ 200 00a0 8F91      		pop r24
+ 201 00a2 7F91      		pop r23
+ 202 00a4 6F91      		pop r22
+ 203 00a6 5F91      		pop r21
+ 204 00a8 4F91      		pop r20
+ 205 00aa 3F91      		pop r19
+ 206 00ac 2F91      		pop r18
+ 207 00ae 0F90      		pop r0
+ 208 00b0 0FBE      		out __SREG__,r0
+ 209 00b2 0F90      		pop r0
+ 210 00b4 1F90      		pop __zero_reg__
+ 211 00b6 1895      		reti
+ 212               	.LFE6:
+ 214               		.section	.text._Z4tonehjm,"ax",@progbits
+ 215               	.global	tone(unsigned char, unsigned int, unsigned long)
+ 217               	tone(unsigned char, unsigned int, unsigned long):
+ 218               	.LFB3:
+ 219               	.LSM22:
+ 220               	.LVL12:
+ 221 0000 2F92      		push r2
+ 222 0002 3F92      		push r3
+ 223 0004 5F92      		push r5
+ 224 0006 6F92      		push r6
+ 225 0008 7F92      		push r7
+ 226 000a 8F92      		push r8
+ 227 000c 9F92      		push r9
+ 228 000e AF92      		push r10
+ 229 0010 BF92      		push r11
+ 230 0012 CF92      		push r12
+ 231 0014 DF92      		push r13
+ 232 0016 EF92      		push r14
+ 233 0018 FF92      		push r15
+ 234 001a 0F93      		push r16
+ 235 001c 1F93      		push r17
+ 236 001e DF93      		push r29
+ 237 0020 CF93      		push r28
+ 238 0022 00D0      		rcall .
+ 239 0024 00D0      		rcall .
+ 240 0026 CDB7      		in r28,__SP_L__
+ 241 0028 DEB7      		in r29,__SP_H__
+ 242               	/* prologue: function */
+ 243               	/* frame size = 4 */
+ 244 002a A82F      		mov r26,r24
+ 245 002c 1B01      		movw r2,r22
+ 246 002e 2983      		std Y+1,r18
+ 247 0030 3A83      		std Y+2,r19
+ 248 0032 4B83      		std Y+3,r20
+ 249 0034 5C83      		std Y+4,r21
+ 250               	.LBB22:
+ 251               	.LBB23:
+ 252               	.LBB24:
+ 253               	.LBB25:
+ 254               	.LBB26:
+ 255               	.LSM23:
+ 256 0036 8091 0000 		lds r24,tone_pins
+ 257               	.LVL13:
+ 258 003a 8A17      		cp r24,r26
+ 259 003c 01F4      		brne .L17
+ 260               	.LVL14:
+ 261               	.LBB27:
+ 262               	.LSM24:
+ 263 003e E0E0      		ldi r30,lo8(tone_pin_to_timer_PGM)
+ 264 0040 F0E0      		ldi r31,hi8(tone_pin_to_timer_PGM)
+ 265               	/* #APP */
+ 266               	 ;  122 "/Applications/Development/Arduino.app/Contents/Resources/Java/hardware/arduino/cores/ardui
+ 267 0042 5490      		lpm r5, Z
+ 268               		
+ 269               	 ;  0 "" 2
+ 270               	.LVL15:
+ 271               	/* #NOAPP */
+ 272 0044 00C0      		rjmp .L18
+ 273               	.LVL16:
+ 274               	.L17:
+ 275               	.LBE27:
+ 276               	.LBE26:
+ 277               	.LBB28:
+ 278               	.LSM25:
+ 279 0046 8F3F      		cpi r24,lo8(-1)
+ 280 0048 01F0      		breq .+2
+ 281 004a 00C0      		rjmp .L48
+ 282               	.LSM26:
+ 283 004c A093 0000 		sts tone_pins,r26
+ 284               	.LBB29:
+ 285               	.LSM27:
+ 286 0050 E0E0      		ldi r30,lo8(tone_pin_to_timer_PGM)
+ 287 0052 F0E0      		ldi r31,hi8(tone_pin_to_timer_PGM)
+ 288               	/* #APP */
+ 289               	 ;  130 "/Applications/Development/Arduino.app/Contents/Resources/Java/hardware/arduino/cores/ardui
+ 290 0054 5490      		lpm r5, Z
+ 291               		
+ 292               	 ;  0 "" 2
+ 293               	.LVL17:
+ 294               	/* #NOAPP */
+ 295               	.LBE29:
+ 296               	.LBE28:
+ 297               	.LSM28:
+ 298 0056 2FEF      		ldi r18,lo8(-1)
+ 299 0058 5216      		cp r5,r18
+ 300 005a 01F4      		brne .+2
+ 301 005c 00C0      		rjmp .L48
+ 302               	.LSM29:
+ 303 005e 81E0      		ldi r24,lo8(1)
+ 304 0060 5816      		cp r5,r24
+ 305 0062 01F0      		breq .L21
+ 306 0064 92E0      		ldi r25,lo8(2)
+ 307 0066 5916      		cp r5,r25
+ 308 0068 01F4      		brne .+2
+ 309 006a 00C0      		rjmp .L22
+ 310 006c 5520      		tst r5
+ 311 006e 01F0      		breq .+2
+ 312 0070 00C0      		rjmp .L18
+ 313               	.LSM30:
+ 314 0072 14BC      		out 68-32,__zero_reg__
+ 315               	.LSM31:
+ 316 0074 15BC      		out 69-32,__zero_reg__
+ 317               	.LSM32:
+ 318 0076 84B5      		in r24,68-32
+ 319 0078 8260      		ori r24,lo8(2)
+ 320 007a 84BD      		out 68-32,r24
+ 321               	.LSM33:
+ 322 007c 85B5      		in r24,69-32
+ 323 007e 8160      		ori r24,lo8(1)
+ 324 0080 85BD      		out 69-32,r24
+ 325               	.LBB30:
+ 326               	.LBB31:
+ 327               	.LSM34:
+ 328 0082 2A2F      		mov r18,r26
+ 329 0084 30E0      		ldi r19,lo8(0)
+ 330 0086 F901      		movw r30,r18
+ 331 0088 E050      		subi r30,lo8(-(digital_pin_to_port_PGM))
+ 332 008a F040      		sbci r31,hi8(-(digital_pin_to_port_PGM))
+ 333               	/* #APP */
+ 334               	 ;  150 "/Applications/Development/Arduino.app/Contents/Resources/Java/hardware/arduino/cores/ardui
+ 335 008c E491      		lpm r30, Z
+ 336               		
+ 337               	 ;  0 "" 2
+ 338               	.LVL18:
+ 339               	/* #NOAPP */
+ 340               	.LBE31:
+ 341 008e F0E0      		ldi r31,lo8(0)
+ 342               	.LVL19:
+ 343 0090 EE0F      		lsl r30
+ 344 0092 FF1F      		rol r31
+ 345               	.LVL20:
+ 346 0094 E050      		subi r30,lo8(-(port_to_output_PGM))
+ 347 0096 F040      		sbci r31,hi8(-(port_to_output_PGM))
+ 348               	/* #APP */
+ 349               	 ;  150 "/Applications/Development/Arduino.app/Contents/Resources/Java/hardware/arduino/cores/ardui
+ 350 0098 8591      		lpm r24, Z+
+ 351 009a 9491      		lpm r25, Z
+ 352               		
+ 353               	 ;  0 "" 2
+ 354               	.LVL21:
+ 355               	/* #NOAPP */
+ 356               	.LBE30:
+ 357 009c 9093 0000 		sts (timer0_pin_port)+1,r25
+ 358 00a0 8093 0000 		sts timer0_pin_port,r24
+ 359               	.LBB32:
+ 360               	.LSM35:
+ 361 00a4 2050      		subi r18,lo8(-(digital_pin_to_bit_mask_PGM))
+ 362 00a6 3040      		sbci r19,hi8(-(digital_pin_to_bit_mask_PGM))
+ 363 00a8 F901      		movw r30,r18
+ 364               	.LVL22:
+ 365               	/* #APP */
+ 366               	 ;  151 "/Applications/Development/Arduino.app/Contents/Resources/Java/hardware/arduino/cores/ardui
+ 367 00aa 8491      		lpm r24, Z
+ 368               		
+ 369               	 ;  0 "" 2
+ 370               	.LVL23:
+ 371               	/* #NOAPP */
+ 372 00ac 8093 0000 		sts timer0_pin_mask,r24
+ 373 00b0 00C0      		rjmp .L23
+ 374               	.LVL24:
+ 375               	.L21:
+ 376               	.LBE32:
+ 377               	.LSM36:
+ 378 00b2 1092 8000 		sts 128,__zero_reg__
+ 379               	.LSM37:
+ 380 00b6 1092 8100 		sts 129,__zero_reg__
+ 381               	.LSM38:
+ 382 00ba 8091 8100 		lds r24,129
+ 383 00be 8860      		ori r24,lo8(8)
+ 384 00c0 8093 8100 		sts 129,r24
+ 385               	.LSM39:
+ 386 00c4 8091 8100 		lds r24,129
+ 387 00c8 8160      		ori r24,lo8(1)
+ 388 00ca 8093 8100 		sts 129,r24
+ 389               	.LBB33:
+ 390               	.LBB34:
+ 391               	.LSM40:
+ 392 00ce 2A2F      		mov r18,r26
+ 393 00d0 30E0      		ldi r19,lo8(0)
+ 394 00d2 F901      		movw r30,r18
+ 395 00d4 E050      		subi r30,lo8(-(digital_pin_to_port_PGM))
+ 396 00d6 F040      		sbci r31,hi8(-(digital_pin_to_port_PGM))
+ 397               	/* #APP */
+ 398               	 ;  162 "/Applications/Development/Arduino.app/Contents/Resources/Java/hardware/arduino/cores/ardui
+ 399 00d8 E491      		lpm r30, Z
+ 400               		
+ 401               	 ;  0 "" 2
+ 402               	.LVL25:
+ 403               	/* #NOAPP */
+ 404               	.LBE34:
+ 405 00da F0E0      		ldi r31,lo8(0)
+ 406               	.LVL26:
+ 407 00dc EE0F      		lsl r30
+ 408 00de FF1F      		rol r31
+ 409               	.LVL27:
+ 410 00e0 E050      		subi r30,lo8(-(port_to_output_PGM))
+ 411 00e2 F040      		sbci r31,hi8(-(port_to_output_PGM))
+ 412               	/* #APP */
+ 413               	 ;  162 "/Applications/Development/Arduino.app/Contents/Resources/Java/hardware/arduino/cores/ardui
+ 414 00e4 8591      		lpm r24, Z+
+ 415 00e6 9491      		lpm r25, Z
+ 416               		
+ 417               	 ;  0 "" 2
+ 418               	.LVL28:
+ 419               	/* #NOAPP */
+ 420               	.LBE33:
+ 421 00e8 9093 0000 		sts (timer1_pin_port)+1,r25
+ 422 00ec 8093 0000 		sts timer1_pin_port,r24
+ 423               	.LBB35:
+ 424               	.LSM41:
+ 425 00f0 2050      		subi r18,lo8(-(digital_pin_to_bit_mask_PGM))
+ 426 00f2 3040      		sbci r19,hi8(-(digital_pin_to_bit_mask_PGM))
+ 427 00f4 F901      		movw r30,r18
+ 428               	.LVL29:
+ 429               	/* #APP */
+ 430               	 ;  163 "/Applications/Development/Arduino.app/Contents/Resources/Java/hardware/arduino/cores/ardui
+ 431 00f6 8491      		lpm r24, Z
+ 432               		
+ 433               	 ;  0 "" 2
+ 434               	.LVL30:
+ 435               	/* #NOAPP */
+ 436 00f8 8093 0000 		sts timer1_pin_mask,r24
+ 437 00fc 00C0      		rjmp .L23
+ 438               	.LVL31:
+ 439               	.L22:
+ 440               	.LBE35:
+ 441               	.LSM42:
+ 442 00fe 1092 B000 		sts 176,__zero_reg__
+ 443               	.LSM43:
+ 444 0102 1092 B100 		sts 177,__zero_reg__
+ 445               	.LSM44:
+ 446 0106 8091 B000 		lds r24,176
+ 447 010a 8260      		ori r24,lo8(2)
+ 448 010c 8093 B000 		sts 176,r24
+ 449               	.LSM45:
+ 450 0110 8091 B100 		lds r24,177
+ 451 0114 8160      		ori r24,lo8(1)
+ 452 0116 8093 B100 		sts 177,r24
+ 453               	.LBB36:
+ 454               	.LBB37:
+ 455               	.LSM46:
+ 456 011a 2A2F      		mov r18,r26
+ 457 011c 30E0      		ldi r19,lo8(0)
+ 458 011e F901      		movw r30,r18
+ 459 0120 E050      		subi r30,lo8(-(digital_pin_to_port_PGM))
+ 460 0122 F040      		sbci r31,hi8(-(digital_pin_to_port_PGM))
+ 461               	/* #APP */
+ 462               	 ;  174 "/Applications/Development/Arduino.app/Contents/Resources/Java/hardware/arduino/cores/ardui
+ 463 0124 E491      		lpm r30, Z
+ 464               		
+ 465               	 ;  0 "" 2
+ 466               	.LVL32:
+ 467               	/* #NOAPP */
+ 468               	.LBE37:
+ 469 0126 F0E0      		ldi r31,lo8(0)
+ 470               	.LVL33:
+ 471 0128 EE0F      		lsl r30
+ 472 012a FF1F      		rol r31
+ 473               	.LVL34:
+ 474 012c E050      		subi r30,lo8(-(port_to_output_PGM))
+ 475 012e F040      		sbci r31,hi8(-(port_to_output_PGM))
+ 476               	/* #APP */
+ 477               	 ;  174 "/Applications/Development/Arduino.app/Contents/Resources/Java/hardware/arduino/cores/ardui
+ 478 0130 8591      		lpm r24, Z+
+ 479 0132 9491      		lpm r25, Z
+ 480               		
+ 481               	 ;  0 "" 2
+ 482               	.LVL35:
+ 483               	/* #NOAPP */
+ 484               	.LBE36:
+ 485 0134 9093 0000 		sts (timer2_pin_port)+1,r25
+ 486 0138 8093 0000 		sts timer2_pin_port,r24
+ 487               	.LBB38:
+ 488               	.LSM47:
+ 489 013c 2050      		subi r18,lo8(-(digital_pin_to_bit_mask_PGM))
+ 490 013e 3040      		sbci r19,hi8(-(digital_pin_to_bit_mask_PGM))
+ 491 0140 F901      		movw r30,r18
+ 492               	.LVL36:
+ 493               	/* #APP */
+ 494               	 ;  175 "/Applications/Development/Arduino.app/Contents/Resources/Java/hardware/arduino/cores/ardui
+ 495 0142 8491      		lpm r24, Z
+ 496               		
+ 497               	 ;  0 "" 2
+ 498               	.LVL37:
+ 499               	/* #NOAPP */
+ 500 0144 8093 0000 		sts timer2_pin_mask,r24
+ 501 0148 00C0      		rjmp .L23
+ 502               	.LVL38:
+ 503               	.L18:
+ 504               	.LBE38:
+ 505               	.LBE25:
+ 506               	.LBE24:
+ 507               	.LBE23:
+ 508               	.LSM48:
+ 509 014a 57FC      		sbrc r5,7
+ 510 014c 00C0      		rjmp .L48
+ 511               	.LVL39:
+ 512               	.L23:
+ 513               	.LSM49:
+ 514 014e 8A2F      		mov r24,r26
+ 515               	.LVL40:
+ 516 0150 61E0      		ldi r22,lo8(1)
+ 517 0152 0E94 0000 		call pinMode
+ 518               	.LVL41:
+ 519               	.LSM50:
+ 520 0156 5520      		tst r5
+ 521 0158 01F0      		breq .L24
+ 522 015a F2E0      		ldi r31,lo8(2)
+ 523 015c 5F16      		cp r5,r31
+ 524 015e 01F0      		breq .+2
+ 525 0160 00C0      		rjmp .L25
+ 526               	.L24:
+ 527               	.LSM51:
+ 528 0162 3101      		movw r6,r2
+ 529 0164 8824      		clr r8
+ 530 0166 9924      		clr r9
+ 531 0168 60E0      		ldi r22,lo8(8000000)
+ 532 016a 72E1      		ldi r23,hi8(8000000)
+ 533 016c 8AE7      		ldi r24,hlo8(8000000)
+ 534 016e 90E0      		ldi r25,hhi8(8000000)
+ 535 0170 A401      		movw r20,r8
+ 536 0172 9301      		movw r18,r6
+ 537 0174 0E94 0000 		call __divmodsi4
+ 538 0178 5901      		movw r10,r18
+ 539 017a 6A01      		movw r12,r20
+ 540 017c 8601      		movw r16,r12
+ 541 017e 7501      		movw r14,r10
+ 542               	.LVL42:
+ 543 0180 0894      		sec
+ 544 0182 E108      		sbc r14,__zero_reg__
+ 545 0184 F108      		sbc r15,__zero_reg__
+ 546 0186 0109      		sbc r16,__zero_reg__
+ 547 0188 1109      		sbc r17,__zero_reg__
+ 548               	.LSM52:
+ 549 018a 2FEF      		ldi r18,lo8(255)
+ 550 018c E216      		cp r14,r18
+ 551 018e F104      		cpc r15,__zero_reg__
+ 552 0190 0105      		cpc r16,__zero_reg__
+ 553 0192 1105      		cpc r17,__zero_reg__
+ 554 0194 01F0      		breq .+2
+ 555 0196 00F4      		brsh .+2
+ 556 0198 00C0      		rjmp .L26
+ 557               	.LSM53:
+ 558 019a 60E4      		ldi r22,lo8(1000000)
+ 559 019c 72E4      		ldi r23,hi8(1000000)
+ 560 019e 8FE0      		ldi r24,hlo8(1000000)
+ 561 01a0 90E0      		ldi r25,hhi8(1000000)
+ 562 01a2 A401      		movw r20,r8
+ 563 01a4 9301      		movw r18,r6
+ 564 01a6 0E94 0000 		call __divmodsi4
+ 565 01aa 7901      		movw r14,r18
+ 566 01ac 8A01      		movw r16,r20
+ 567 01ae 0894      		sec
+ 568 01b0 E108      		sbc r14,__zero_reg__
+ 569 01b2 F108      		sbc r15,__zero_reg__
+ 570 01b4 0109      		sbc r16,__zero_reg__
+ 571 01b6 1109      		sbc r17,__zero_reg__
+ 572               	.LSM54:
+ 573 01b8 82E0      		ldi r24,lo8(2)
+ 574 01ba 5816      		cp r5,r24
+ 575 01bc 01F4      		brne .L28
+ 576 01be 9FEF      		ldi r25,lo8(255)
+ 577 01c0 E916      		cp r14,r25
+ 578 01c2 F104      		cpc r15,__zero_reg__
+ 579 01c4 0105      		cpc r16,__zero_reg__
+ 580 01c6 1105      		cpc r17,__zero_reg__
+ 581 01c8 01F0      		breq .+2
+ 582 01ca 00F4      		brsh .+2
+ 583 01cc 00C0      		rjmp .L29
+ 584               	.LSM55:
+ 585 01ce 60E9      		ldi r22,lo8(250000)
+ 586 01d0 70ED      		ldi r23,hi8(250000)
+ 587 01d2 83E0      		ldi r24,hlo8(250000)
+ 588 01d4 90E0      		ldi r25,hhi8(250000)
+ 589 01d6 A401      		movw r20,r8
+ 590 01d8 9301      		movw r18,r6
+ 591 01da 0E94 0000 		call __divmodsi4
+ 592 01de 7901      		movw r14,r18
+ 593 01e0 8A01      		movw r16,r20
+ 594 01e2 0894      		sec
+ 595 01e4 E108      		sbc r14,__zero_reg__
+ 596 01e6 F108      		sbc r15,__zero_reg__
+ 597 01e8 0109      		sbc r16,__zero_reg__
+ 598 01ea 1109      		sbc r17,__zero_reg__
+ 599 01ec 83E0      		ldi r24,lo8(3)
+ 600               	.LVL43:
+ 601               	.L28:
+ 602               	.LSM56:
+ 603 01ee AFEF      		ldi r26,lo8(255)
+ 604 01f0 EA16      		cp r14,r26
+ 605 01f2 F104      		cpc r15,__zero_reg__
+ 606 01f4 0105      		cpc r16,__zero_reg__
+ 607 01f6 1105      		cpc r17,__zero_reg__
+ 608 01f8 01F0      		breq .+2
+ 609 01fa 00F4      		brsh .+2
+ 610 01fc 00C0      		rjmp .L30
+ 611               	.LSM57:
+ 612 01fe 68E4      		ldi r22,lo8(125000)
+ 613 0200 78EE      		ldi r23,hi8(125000)
+ 614 0202 81E0      		ldi r24,hlo8(125000)
+ 615 0204 90E0      		ldi r25,hhi8(125000)
+ 616 0206 A401      		movw r20,r8
+ 617 0208 9301      		movw r18,r6
+ 618 020a 0E94 0000 		call __divmodsi4
+ 619 020e 7901      		movw r14,r18
+ 620 0210 8A01      		movw r16,r20
+ 621 0212 0894      		sec
+ 622 0214 E108      		sbc r14,__zero_reg__
+ 623 0216 F108      		sbc r15,__zero_reg__
+ 624 0218 0109      		sbc r16,__zero_reg__
+ 625 021a 1109      		sbc r17,__zero_reg__
+ 626               	.LSM58:
+ 627 021c 5520      		tst r5
+ 628 021e 01F4      		brne .L31
+ 629 0220 83E0      		ldi r24,lo8(3)
+ 630 0222 00C0      		rjmp .L32
+ 631               	.L31:
+ 632               	.LSM59:
+ 633 0224 B2E0      		ldi r27,lo8(2)
+ 634 0226 5B16      		cp r5,r27
+ 635 0228 01F0      		breq .L33
+ 636 022a 84E0      		ldi r24,lo8(4)
+ 637 022c 00C0      		rjmp .L32
+ 638               	.L33:
+ 639 022e EFEF      		ldi r30,lo8(255)
+ 640 0230 EE16      		cp r14,r30
+ 641 0232 F104      		cpc r15,__zero_reg__
+ 642 0234 0105      		cpc r16,__zero_reg__
+ 643 0236 1105      		cpc r17,__zero_reg__
+ 644 0238 01F0      		breq .+2
+ 645 023a 00F4      		brsh .+2
+ 646 023c 00C0      		rjmp .L34
+ 647               	.LSM60:
+ 648 023e 64E2      		ldi r22,lo8(62500)
+ 649 0240 74EF      		ldi r23,hi8(62500)
+ 650 0242 80E0      		ldi r24,hlo8(62500)
+ 651 0244 90E0      		ldi r25,hhi8(62500)
+ 652 0246 A401      		movw r20,r8
+ 653 0248 9301      		movw r18,r6
+ 654 024a 0E94 0000 		call __divmodsi4
+ 655 024e 7901      		movw r14,r18
+ 656 0250 8A01      		movw r16,r20
+ 657 0252 0894      		sec
+ 658 0254 E108      		sbc r14,__zero_reg__
+ 659 0256 F108      		sbc r15,__zero_reg__
+ 660 0258 0109      		sbc r16,__zero_reg__
+ 661 025a 1109      		sbc r17,__zero_reg__
+ 662 025c 85E0      		ldi r24,lo8(5)
+ 663               	.L32:
+ 664               	.LSM61:
+ 665 025e FFEF      		ldi r31,lo8(255)
+ 666 0260 EF16      		cp r14,r31
+ 667 0262 F104      		cpc r15,__zero_reg__
+ 668 0264 0105      		cpc r16,__zero_reg__
+ 669 0266 1105      		cpc r17,__zero_reg__
+ 670 0268 01F0      		breq .L30
+ 671 026a 00F0      		brlo .L30
+ 672               	.LSM62:
+ 673 026c 62E1      		ldi r22,lo8(31250)
+ 674 026e 7AE7      		ldi r23,hi8(31250)
+ 675 0270 80E0      		ldi r24,hlo8(31250)
+ 676 0272 90E0      		ldi r25,hhi8(31250)
+ 677 0274 A401      		movw r20,r8
+ 678 0276 9301      		movw r18,r6
+ 679 0278 0E94 0000 		call __divmodsi4
+ 680 027c 7901      		movw r14,r18
+ 681 027e 8A01      		movw r16,r20
+ 682 0280 0894      		sec
+ 683 0282 E108      		sbc r14,__zero_reg__
+ 684 0284 F108      		sbc r15,__zero_reg__
+ 685 0286 0109      		sbc r16,__zero_reg__
+ 686 0288 1109      		sbc r17,__zero_reg__
+ 687               	.LSM63:
+ 688 028a 5520      		tst r5
+ 689 028c 01F0      		breq .L35
+ 690 028e 86E0      		ldi r24,lo8(6)
+ 691 0290 00C0      		rjmp .L36
+ 692               	.L35:
+ 693 0292 84E0      		ldi r24,lo8(4)
+ 694               	.L36:
+ 695               	.LSM64:
+ 696 0294 2FEF      		ldi r18,lo8(255)
+ 697 0296 E216      		cp r14,r18
+ 698 0298 F104      		cpc r15,__zero_reg__
+ 699 029a 0105      		cpc r16,__zero_reg__
+ 700 029c 1105      		cpc r17,__zero_reg__
+ 701 029e 01F0      		breq .L30
+ 702 02a0 00F0      		brlo .L30
+ 703               	.LSM65:
+ 704 02a2 C601      		movw r24,r12
+ 705 02a4 B501      		movw r22,r10
+ 706 02a6 20E0      		ldi r18,lo8(1024)
+ 707 02a8 34E0      		ldi r19,hi8(1024)
+ 708 02aa 40E0      		ldi r20,hlo8(1024)
+ 709 02ac 50E0      		ldi r21,hhi8(1024)
+ 710 02ae 0E94 0000 		call __divmodsi4
+ 711 02b2 7901      		movw r14,r18
+ 712 02b4 8A01      		movw r16,r20
+ 713 02b6 0894      		sec
+ 714 02b8 E108      		sbc r14,__zero_reg__
+ 715 02ba F108      		sbc r15,__zero_reg__
+ 716 02bc 0109      		sbc r16,__zero_reg__
+ 717 02be 1109      		sbc r17,__zero_reg__
+ 718               	.LSM66:
+ 719 02c0 5520      		tst r5
+ 720 02c2 01F0      		breq .L37
+ 721 02c4 87E0      		ldi r24,lo8(7)
+ 722 02c6 00C0      		rjmp .L38
+ 723               	.L37:
+ 724 02c8 85E0      		ldi r24,lo8(5)
+ 725 02ca 00C0      		rjmp .L39
+ 726               	.LVL44:
+ 727               	.L26:
+ 728 02cc 81E0      		ldi r24,lo8(1)
+ 729               	.LVL45:
+ 730               	.L30:
+ 731               	.LSM67:
+ 732 02ce 5520      		tst r5
+ 733 02d0 01F4      		brne .L38
+ 734               	.L39:
+ 735               	.LSM68:
+ 736 02d2 85BD      		out 69-32,r24
+ 737 02d4 00C0      		rjmp .L40
+ 738               	.LVL46:
+ 739               	.L29:
+ 740 02d6 82E0      		ldi r24,lo8(2)
+ 741               	.LVL47:
+ 742               	.L38:
+ 743               	.LSM69:
+ 744 02d8 8093 B100 		sts 177,r24
+ 745 02dc 00C0      		rjmp .L40
+ 746               	.LVL48:
+ 747               	.L25:
+ 748               	.LSM70:
+ 749 02de 5101      		movw r10,r2
+ 750 02e0 CC24      		clr r12
+ 751 02e2 DD24      		clr r13
+ 752 02e4 60E0      		ldi r22,lo8(8000000)
+ 753 02e6 72E1      		ldi r23,hi8(8000000)
+ 754 02e8 8AE7      		ldi r24,hlo8(8000000)
+ 755 02ea 90E0      		ldi r25,hhi8(8000000)
+ 756 02ec A601      		movw r20,r12
+ 757 02ee 9501      		movw r18,r10
+ 758 02f0 0E94 0000 		call __divmodsi4
+ 759 02f4 7901      		movw r14,r18
+ 760 02f6 8A01      		movw r16,r20
+ 761               	.LVL49:
+ 762 02f8 0894      		sec
+ 763 02fa E108      		sbc r14,__zero_reg__
+ 764 02fc F108      		sbc r15,__zero_reg__
+ 765 02fe 0109      		sbc r16,__zero_reg__
+ 766 0300 1109      		sbc r17,__zero_reg__
+ 767               	.LSM71:
+ 768 0302 80E0      		ldi r24,lo8(65536)
+ 769 0304 E816      		cp r14,r24
+ 770 0306 80E0      		ldi r24,hi8(65536)
+ 771 0308 F806      		cpc r15,r24
+ 772 030a 81E0      		ldi r24,hlo8(65536)
+ 773 030c 0807      		cpc r16,r24
+ 774 030e 80E0      		ldi r24,hhi8(65536)
+ 775 0310 1807      		cpc r17,r24
+ 776 0312 00F4      		brsh .L41
+ 777 0314 91E0      		ldi r25,lo8(1)
+ 778               	.LVL50:
+ 779 0316 00C0      		rjmp .L42
+ 780               	.LVL51:
+ 781               	.L41:
+ 782               	.LSM72:
+ 783 0318 68E4      		ldi r22,lo8(125000)
+ 784 031a 78EE      		ldi r23,hi8(125000)
+ 785 031c 81E0      		ldi r24,hlo8(125000)
+ 786 031e 90E0      		ldi r25,hhi8(125000)
+ 787 0320 A601      		movw r20,r12
+ 788 0322 9501      		movw r18,r10
+ 789 0324 0E94 0000 		call __divmodsi4
+ 790 0328 7901      		movw r14,r18
+ 791 032a 8A01      		movw r16,r20
+ 792 032c 0894      		sec
+ 793 032e E108      		sbc r14,__zero_reg__
+ 794 0330 F108      		sbc r15,__zero_reg__
+ 795 0332 0109      		sbc r16,__zero_reg__
+ 796 0334 1109      		sbc r17,__zero_reg__
+ 797 0336 93E0      		ldi r25,lo8(3)
+ 798               	.LVL52:
+ 799               	.L42:
+ 800               	.LSM73:
+ 801 0338 A1E0      		ldi r26,lo8(1)
+ 802 033a 5A16      		cp r5,r26
+ 803 033c 01F4      		brne .L40
+ 804               	.LSM74:
+ 805 033e 8091 8100 		lds r24,129
+ 806 0342 887F      		andi r24,lo8(-8)
+ 807 0344 982B      		or r25,r24
+ 808 0346 9093 8100 		sts 129,r25
+ 809               	.LVL53:
+ 810               	.L40:
+ 811               	.LSM75:
+ 812 034a 8981      		ldd r24,Y+1
+ 813 034c 9A81      		ldd r25,Y+2
+ 814 034e AB81      		ldd r26,Y+3
+ 815 0350 BC81      		ldd r27,Y+4
+ 816               	.LVL54:
+ 817 0352 0097      		sbiw r24,0
+ 818 0354 A105      		cpc r26,__zero_reg__
+ 819 0356 B105      		cpc r27,__zero_reg__
+ 820 0358 01F4      		brne .L43
+ 821 035a 8FEF      		ldi r24,lo8(-1)
+ 822 035c 9FEF      		ldi r25,hi8(-1)
+ 823 035e AFEF      		ldi r26,hlo8(-1)
+ 824 0360 BFEF      		ldi r27,hhi8(-1)
+ 825               	.LVL55:
+ 826 0362 00C0      		rjmp .L44
+ 827               	.LVL56:
+ 828               	.L43:
+ 829               	.LSM76:
+ 830 0364 220C      		lsl r2
+ 831 0366 331C      		rol r3
+ 832 0368 B101      		movw r22,r2
+ 833 036a 80E0      		ldi r24,lo8(0)
+ 834 036c 90E0      		ldi r25,hi8(0)
+ 835 036e 2981      		ldd r18,Y+1
+ 836 0370 3A81      		ldd r19,Y+2
+ 837 0372 4B81      		ldd r20,Y+3
+ 838 0374 5C81      		ldd r21,Y+4
+ 839 0376 0E94 0000 		call __mulsi3
+ 840 037a 28EE      		ldi r18,lo8(1000)
+ 841 037c 33E0      		ldi r19,hi8(1000)
+ 842 037e 40E0      		ldi r20,hlo8(1000)
+ 843 0380 50E0      		ldi r21,hhi8(1000)
+ 844 0382 0E94 0000 		call __udivmodsi4
+ 845 0386 C901      		movw r24,r18
+ 846 0388 DA01      		movw r26,r20
+ 847               	.LVL57:
+ 848               	.L44:
+ 849               	.LSM77:
+ 850 038a E1E0      		ldi r30,lo8(1)
+ 851 038c 5E16      		cp r5,r30
+ 852 038e 01F0      		breq .L46
+ 853 0390 F2E0      		ldi r31,lo8(2)
+ 854 0392 5F16      		cp r5,r31
+ 855 0394 01F0      		breq .L47
+ 856 0396 5520      		tst r5
+ 857 0398 01F4      		brne .L48
+ 858               	.LSM78:
+ 859 039a E7BC      		out 71-32,r14
+ 860               	.LSM79:
+ 861 039c 8093 0000 		sts timer0_toggle_count,r24
+ 862 03a0 9093 0000 		sts (timer0_toggle_count)+1,r25
+ 863 03a4 A093 0000 		sts (timer0_toggle_count)+2,r26
+ 864 03a8 B093 0000 		sts (timer0_toggle_count)+3,r27
+ 865               	.LSM80:
+ 866 03ac 8091 6E00 		lds r24,110
+ 867               	.LVL58:
+ 868 03b0 8260      		ori r24,lo8(2)
+ 869 03b2 8093 6E00 		sts 110,r24
+ 870 03b6 00C0      		rjmp .L48
+ 871               	.LVL59:
+ 872               	.L46:
+ 873               	.LSM81:
+ 874 03b8 F092 8900 		sts (136)+1,r15
+ 875 03bc E092 8800 		sts 136,r14
+ 876               	.LSM82:
+ 877 03c0 8093 0000 		sts timer1_toggle_count,r24
+ 878 03c4 9093 0000 		sts (timer1_toggle_count)+1,r25
+ 879 03c8 A093 0000 		sts (timer1_toggle_count)+2,r26
+ 880 03cc B093 0000 		sts (timer1_toggle_count)+3,r27
+ 881               	.LSM83:
+ 882 03d0 8091 6F00 		lds r24,111
+ 883               	.LVL60:
+ 884 03d4 8260      		ori r24,lo8(2)
+ 885 03d6 8093 6F00 		sts 111,r24
+ 886 03da 00C0      		rjmp .L48
+ 887               	.LVL61:
+ 888               	.L47:
+ 889               	.LSM84:
+ 890 03dc E092 B300 		sts 179,r14
+ 891               	.LSM85:
+ 892 03e0 8093 0000 		sts timer2_toggle_count,r24
+ 893 03e4 9093 0000 		sts (timer2_toggle_count)+1,r25
+ 894 03e8 A093 0000 		sts (timer2_toggle_count)+2,r26
+ 895 03ec B093 0000 		sts (timer2_toggle_count)+3,r27
+ 896               	.LSM86:
+ 897 03f0 8091 7000 		lds r24,112
+ 898               	.LVL62:
+ 899 03f4 8260      		ori r24,lo8(2)
+ 900 03f6 8093 7000 		sts 112,r24
+ 901 03fa 00C0      		rjmp .L48
+ 902               	.LVL63:
+ 903               	.L34:
+ 904               	.LSM87:
+ 905 03fc 84E0      		ldi r24,lo8(4)
+ 906 03fe 00C0      		rjmp .L38
+ 907               	.LVL64:
+ 908               	.L48:
+ 909               	/* epilogue start */
+ 910               	.LBE22:
+ 911 0400 0F90      		pop __tmp_reg__
+ 912 0402 0F90      		pop __tmp_reg__
+ 913 0404 0F90      		pop __tmp_reg__
+ 914 0406 0F90      		pop __tmp_reg__
+ 915 0408 CF91      		pop r28
+ 916 040a DF91      		pop r29
+ 917 040c 1F91      		pop r17
+ 918 040e 0F91      		pop r16
+ 919 0410 FF90      		pop r15
+ 920 0412 EF90      		pop r14
+ 921               	.LVL65:
+ 922 0414 DF90      		pop r13
+ 923 0416 CF90      		pop r12
+ 924 0418 BF90      		pop r11
+ 925 041a AF90      		pop r10
+ 926 041c 9F90      		pop r9
+ 927 041e 8F90      		pop r8
+ 928 0420 7F90      		pop r7
+ 929 0422 6F90      		pop r6
+ 930 0424 5F90      		pop r5
+ 931               	.LVL66:
+ 932 0426 3F90      		pop r3
+ 933 0428 2F90      		pop r2
+ 934               	.LVL67:
+ 935 042a 0895      		ret
+ 936               	.LFE3:
+ 938               	.global	timer0_toggle_count
+ 939               		.section	.bss.timer0_toggle_count,"aw",@nobits
+ 942               	timer0_toggle_count:
+ 943 0000 0000 0000 		.skip 4,0
+ 944               	.global	timer0_pin_port
+ 945               		.section	.bss.timer0_pin_port,"aw",@nobits
+ 948               	timer0_pin_port:
+ 949 0000 0000      		.skip 2,0
+ 950               	.global	timer0_pin_mask
+ 951               		.section	.bss.timer0_pin_mask,"aw",@nobits
+ 954               	timer0_pin_mask:
+ 955 0000 00        		.skip 1,0
+ 956               	.global	timer1_toggle_count
+ 957               		.section	.bss.timer1_toggle_count,"aw",@nobits
+ 960               	timer1_toggle_count:
+ 961 0000 0000 0000 		.skip 4,0
+ 962               	.global	timer1_pin_port
+ 963               		.section	.bss.timer1_pin_port,"aw",@nobits
+ 966               	timer1_pin_port:
+ 967 0000 0000      		.skip 2,0
+ 968               	.global	timer1_pin_mask
+ 969               		.section	.bss.timer1_pin_mask,"aw",@nobits
+ 972               	timer1_pin_mask:
+ 973 0000 00        		.skip 1,0
+ 974               	.global	timer2_toggle_count
+ 975               		.section	.bss.timer2_toggle_count,"aw",@nobits
+ 978               	timer2_toggle_count:
+ 979 0000 0000 0000 		.skip 4,0
+ 980               	.global	timer2_pin_port
+ 981               		.section	.bss.timer2_pin_port,"aw",@nobits
+ 984               	timer2_pin_port:
+ 985 0000 0000      		.skip 2,0
+ 986               	.global	timer2_pin_mask
+ 987               		.section	.bss.timer2_pin_mask,"aw",@nobits
+ 990               	timer2_pin_mask:
+ 991 0000 00        		.skip 1,0
+ 992               		.section	.data._ZL9tone_pins,"aw",@progbits
+ 995               	tone_pins:
+ 996 0000 FF        		.byte	-1
+ 997               		.section	.progmem.data,"a",@progbits
+ 1000               	tone_pin_to_timer_PGM:
+ 1001 0000 02        		.byte	2
+ 1050               	.Letext0:
+DEFINED SYMBOLS
+                            *ABS*:00000000 Tone.cpp
+/var/folders/6v/2vwt01v529l7cbx7ts4b06bm0000gn/T//cc8zeYkH.s:2      *ABS*:0000003f __SREG__
+/var/folders/6v/2vwt01v529l7cbx7ts4b06bm0000gn/T//cc8zeYkH.s:3      *ABS*:0000003e __SP_H__
+/var/folders/6v/2vwt01v529l7cbx7ts4b06bm0000gn/T//cc8zeYkH.s:4      *ABS*:0000003d __SP_L__
+/var/folders/6v/2vwt01v529l7cbx7ts4b06bm0000gn/T//cc8zeYkH.s:5      *ABS*:00000034 __CCP__
+/var/folders/6v/2vwt01v529l7cbx7ts4b06bm0000gn/T//cc8zeYkH.s:6      *ABS*:00000000 __tmp_reg__
+/var/folders/6v/2vwt01v529l7cbx7ts4b06bm0000gn/T//cc8zeYkH.s:7      *ABS*:00000001 __zero_reg__
+/var/folders/6v/2vwt01v529l7cbx7ts4b06bm0000gn/T//cc8zeYkH.s:21     .text._Z12disableTimerh:00000000 disableTimer(unsigned char)
+/var/folders/6v/2vwt01v529l7cbx7ts4b06bm0000gn/T//cc8zeYkH.s:71     .text._Z6noToneh:00000000 noTone(unsigned char)
+/var/folders/6v/2vwt01v529l7cbx7ts4b06bm0000gn/T//cc8zeYkH.s:995    .data._ZL9tone_pins:00000000 tone_pins
+/var/folders/6v/2vwt01v529l7cbx7ts4b06bm0000gn/T//cc8zeYkH.s:1000   .progmem.data:00000000 tone_pin_to_timer_PGM
+/var/folders/6v/2vwt01v529l7cbx7ts4b06bm0000gn/T//cc8zeYkH.s:127    .text.__vector_7:00000000 __vector_7
+/var/folders/6v/2vwt01v529l7cbx7ts4b06bm0000gn/T//cc8zeYkH.s:978    .bss.timer2_toggle_count:00000000 timer2_toggle_count
+/var/folders/6v/2vwt01v529l7cbx7ts4b06bm0000gn/T//cc8zeYkH.s:984    .bss.timer2_pin_port:00000000 timer2_pin_port
+/var/folders/6v/2vwt01v529l7cbx7ts4b06bm0000gn/T//cc8zeYkH.s:990    .bss.timer2_pin_mask:00000000 timer2_pin_mask
+/var/folders/6v/2vwt01v529l7cbx7ts4b06bm0000gn/T//cc8zeYkH.s:217    .text._Z4tonehjm:00000000 tone(unsigned char, unsigned int, unsigned long)
+/var/folders/6v/2vwt01v529l7cbx7ts4b06bm0000gn/T//cc8zeYkH.s:948    .bss.timer0_pin_port:00000000 timer0_pin_port
+/var/folders/6v/2vwt01v529l7cbx7ts4b06bm0000gn/T//cc8zeYkH.s:954    .bss.timer0_pin_mask:00000000 timer0_pin_mask
+/var/folders/6v/2vwt01v529l7cbx7ts4b06bm0000gn/T//cc8zeYkH.s:966    .bss.timer1_pin_port:00000000 timer1_pin_port
+/var/folders/6v/2vwt01v529l7cbx7ts4b06bm0000gn/T//cc8zeYkH.s:972    .bss.timer1_pin_mask:00000000 timer1_pin_mask
+/var/folders/6v/2vwt01v529l7cbx7ts4b06bm0000gn/T//cc8zeYkH.s:942    .bss.timer0_toggle_count:00000000 timer0_toggle_count
+/var/folders/6v/2vwt01v529l7cbx7ts4b06bm0000gn/T//cc8zeYkH.s:960    .bss.timer1_toggle_count:00000000 timer1_toggle_count
+
+UNDEFINED SYMBOLS
+__do_copy_data
+__do_clear_bss
+digitalWrite
+digital_pin_to_port_PGM
+port_to_output_PGM
+digital_pin_to_bit_mask_PGM
+pinMode
+__divmodsi4
+__mulsi3
+__udivmodsi4
