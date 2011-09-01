@@ -1,0 +1,248 @@
+   1               		.file	"WMath.cpp"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__CCP__  = 0x34
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+   8               		.global __do_copy_data
+   9               		.global __do_clear_bss
+  17               	.Ltext0:
+  18               		.section	.text._Z3maplllll,"ax",@progbits
+  19               	.global	map(long, long, long, long, long)
+  21               	map(long, long, long, long, long):
+  22               	.LFB5:
+  23               	.LSM0:
+  24               	.LVL0:
+  25 0000 A0E0      		ldi r26,lo8(0)
+  26 0002 B0E0      		ldi r27,hi8(0)
+  27 0004 E0E0      		ldi r30,lo8(gs(1f))
+  28 0006 F0E0      		ldi r31,hi8(gs(1f))
+  29 0008 0C94 0000 		jmp __prologue_saves__+((18 - 18) * 2)
+  30               	1:
+  31               	/* prologue: function */
+  32               	/* frame size = 0 */
+  33 000c 3B01      		movw r6,r22
+  34 000e 4C01      		movw r8,r24
+  35 0010 1901      		movw r2,r18
+  36 0012 2A01      		movw r4,r20
+  37 0014 6D89      		ldd r22,Y+21
+  38 0016 7E89      		ldd r23,Y+22
+  39 0018 8F89      		ldd r24,Y+23
+  40 001a 988D      		ldd r25,Y+24
+  41               	.LVL1:
+  42               	.LSM1:
+  43 001c 6A19      		sub r22,r10
+  44 001e 7B09      		sbc r23,r11
+  45 0020 8C09      		sbc r24,r12
+  46 0022 9D09      		sbc r25,r13
+  47               	.LVL2:
+  48 0024 621A      		sub r6,r18
+  49 0026 730A      		sbc r7,r19
+  50 0028 840A      		sbc r8,r20
+  51 002a 950A      		sbc r9,r21
+  52 002c A401      		movw r20,r8
+  53 002e 9301      		movw r18,r6
+  54               	.LVL3:
+  55 0030 0E94 0000 		call __mulsi3
+  56               	.LVL4:
+  57 0034 E218      		sub r14,r2
+  58 0036 F308      		sbc r15,r3
+  59 0038 0409      		sbc r16,r4
+  60 003a 1509      		sbc r17,r5
+  61               	.LVL5:
+  62 003c A801      		movw r20,r16
+  63 003e 9701      		movw r18,r14
+  64 0040 0E94 0000 		call __divmodsi4
+  65 0044 2A0D      		add r18,r10
+  66 0046 3B1D      		adc r19,r11
+  67 0048 4C1D      		adc r20,r12
+  68 004a 5D1D      		adc r21,r13
+  69               	.LSM2:
+  70 004c B901      		movw r22,r18
+  71 004e CA01      		movw r24,r20
+  72               	/* epilogue start */
+  73 0050 2096      		adiw r28,0
+  74 0052 E2E1      		ldi r30, lo8(18)
+  75 0054 0C94 0000 		jmp __epilogue_restores__ + ((18 - 18) * 2)
+  76               	.LFE5:
+  78               		.section	.text._Z8makeWordj,"ax",@progbits
+  79               	.global	makeWord(unsigned int)
+  81               	makeWord(unsigned int):
+  82               	.LFB6:
+  83               	.LSM3:
+  84               	.LVL6:
+  85               	/* prologue: function */
+  86               	/* frame size = 0 */
+  87               	.LVL7:
+  88               	/* epilogue start */
+  89               	.LSM4:
+  90 0000 0895      		ret
+  91               	.LFE6:
+  93               		.section	.text._Z8makeWordhh,"ax",@progbits
+  94               	.global	makeWord(unsigned char, unsigned char)
+  96               	makeWord(unsigned char, unsigned char):
+  97               	.LFB7:
+  98               	.LSM5:
+  99               	.LVL8:
+ 100               	/* prologue: function */
+ 101               	/* frame size = 0 */
+ 102               	.LSM6:
+ 103 0000 70E0      		ldi r23,lo8(0)
+ 104 0002 382F      		mov r19,r24
+ 105               	.LVL9:
+ 106 0004 20E0      		ldi r18,lo8(0)
+ 107               	.LVL10:
+ 108 0006 622B      		or r22,r18
+ 109 0008 732B      		or r23,r19
+ 110               	.LVL11:
+ 111 000a CB01      		movw r24,r22
+ 112               	/* epilogue start */
+ 113 000c 0895      		ret
+ 114               	.LFE7:
+ 116               		.section	.text._Z6randoml,"ax",@progbits
+ 117               	.global	random(long)
+ 119               	random(long):
+ 120               	.LFB3:
+ 121               	.LSM7:
+ 122               	.LVL12:
+ 123 0000 EF92      		push r14
+ 124 0002 FF92      		push r15
+ 125 0004 0F93      		push r16
+ 126 0006 1F93      		push r17
+ 127               	/* prologue: function */
+ 128               	/* frame size = 0 */
+ 129 0008 7B01      		movw r14,r22
+ 130 000a 8C01      		movw r16,r24
+ 131               	.LSM8:
+ 132 000c 6115      		cp r22,__zero_reg__
+ 133 000e 7105      		cpc r23,__zero_reg__
+ 134 0010 8105      		cpc r24,__zero_reg__
+ 135 0012 9105      		cpc r25,__zero_reg__
+ 136 0014 01F4      		brne .L8
+ 137 0016 20E0      		ldi r18,lo8(0)
+ 138 0018 30E0      		ldi r19,hi8(0)
+ 139 001a 40E0      		ldi r20,hlo8(0)
+ 140 001c 50E0      		ldi r21,hhi8(0)
+ 141 001e 00C0      		rjmp .L9
+ 142               	.L8:
+ 143               	.LSM9:
+ 144 0020 0E94 0000 		call random
+ 145               	.LVL13:
+ 146 0024 A801      		movw r20,r16
+ 147 0026 9701      		movw r18,r14
+ 148 0028 0E94 0000 		call __divmodsi4
+ 149 002c AC01      		movw r20,r24
+ 150 002e CB01      		movw r24,r22
+ 151 0030 DA01      		movw r26,r20
+ 152 0032 9C01      		movw r18,r24
+ 153 0034 AD01      		movw r20,r26
+ 154               	.LVL14:
+ 155               	.L9:
+ 156               	.LSM10:
+ 157 0036 B901      		movw r22,r18
+ 158 0038 CA01      		movw r24,r20
+ 159               	/* epilogue start */
+ 160 003a 1F91      		pop r17
+ 161 003c 0F91      		pop r16
+ 162 003e FF90      		pop r15
+ 163 0040 EF90      		pop r14
+ 164               	.LVL15:
+ 165 0042 0895      		ret
+ 166               	.LFE3:
+ 168               		.section	.text._Z6randomll,"ax",@progbits
+ 169               	.global	random(long, long)
+ 171               	random(long, long):
+ 172               	.LFB4:
+ 173               	.LSM11:
+ 174               	.LVL16:
+ 175 0000 EF92      		push r14
+ 176 0002 FF92      		push r15
+ 177 0004 0F93      		push r16
+ 178 0006 1F93      		push r17
+ 179               	/* prologue: function */
+ 180               	/* frame size = 0 */
+ 181 0008 7B01      		movw r14,r22
+ 182 000a 8C01      		movw r16,r24
+ 183               	.LBB2:
+ 184               	.LSM12:
+ 185 000c 6217      		cp r22,r18
+ 186 000e 7307      		cpc r23,r19
+ 187 0010 8407      		cpc r24,r20
+ 188 0012 9507      		cpc r25,r21
+ 189 0014 04F4      		brge .L12
+ 190               	.LSM13:
+ 191 0016 261B      		sub r18,r22
+ 192 0018 370B      		sbc r19,r23
+ 193 001a 480B      		sbc r20,r24
+ 194 001c 590B      		sbc r21,r25
+ 195               	.LVL17:
+ 196 001e CA01      		movw r24,r20
+ 197 0020 B901      		movw r22,r18
+ 198               	.LVL18:
+ 199 0022 0E94 0000 		call random(long)
+ 200               	.LVL19:
+ 201 0026 E60E      		add r14,r22
+ 202 0028 F71E      		adc r15,r23
+ 203 002a 081F      		adc r16,r24
+ 204 002c 191F      		adc r17,r25
+ 205               	.LVL20:
+ 206               	.L12:
+ 207               	.LBE2:
+ 208               	.LSM14:
+ 209 002e B701      		movw r22,r14
+ 210               	.LVL21:
+ 211 0030 C801      		movw r24,r16
+ 212               	/* epilogue start */
+ 213 0032 1F91      		pop r17
+ 214 0034 0F91      		pop r16
+ 215 0036 FF90      		pop r15
+ 216 0038 EF90      		pop r14
+ 217 003a 0895      		ret
+ 218               	.LFE4:
+ 220               		.section	.text._Z10randomSeedj,"ax",@progbits
+ 221               	.global	randomSeed(unsigned int)
+ 223               	randomSeed(unsigned int):
+ 224               	.LFB2:
+ 225               	.LSM15:
+ 226               	.LVL22:
+ 227               	/* prologue: function */
+ 228               	/* frame size = 0 */
+ 229               	.LSM16:
+ 230 0000 0097      		sbiw r24,0
+ 231 0002 01F0      		breq .L16
+ 232               	.LSM17:
+ 233 0004 BC01      		movw r22,r24
+ 234 0006 80E0      		ldi r24,lo8(0)
+ 235 0008 90E0      		ldi r25,hi8(0)
+ 236               	.LVL23:
+ 237 000a 0E94 0000 		call srandom
+ 238               	.LVL24:
+ 239               	.L16:
+ 240 000e 0895      		ret
+ 241               	.LFE2:
+ 307               	.Letext0:
+DEFINED SYMBOLS
+                            *ABS*:00000000 WMath.cpp
+/var/folders/6v/2vwt01v529l7cbx7ts4b06bm0000gn/T//ccL6URiB.s:2      *ABS*:0000003f __SREG__
+/var/folders/6v/2vwt01v529l7cbx7ts4b06bm0000gn/T//ccL6URiB.s:3      *ABS*:0000003e __SP_H__
+/var/folders/6v/2vwt01v529l7cbx7ts4b06bm0000gn/T//ccL6URiB.s:4      *ABS*:0000003d __SP_L__
+/var/folders/6v/2vwt01v529l7cbx7ts4b06bm0000gn/T//ccL6URiB.s:5      *ABS*:00000034 __CCP__
+/var/folders/6v/2vwt01v529l7cbx7ts4b06bm0000gn/T//ccL6URiB.s:6      *ABS*:00000000 __tmp_reg__
+/var/folders/6v/2vwt01v529l7cbx7ts4b06bm0000gn/T//ccL6URiB.s:7      *ABS*:00000001 __zero_reg__
+/var/folders/6v/2vwt01v529l7cbx7ts4b06bm0000gn/T//ccL6URiB.s:21     .text._Z3maplllll:00000000 map(long, long, long, long, long)
+/var/folders/6v/2vwt01v529l7cbx7ts4b06bm0000gn/T//ccL6URiB.s:81     .text._Z8makeWordj:00000000 makeWord(unsigned int)
+/var/folders/6v/2vwt01v529l7cbx7ts4b06bm0000gn/T//ccL6URiB.s:96     .text._Z8makeWordhh:00000000 makeWord(unsigned char, unsigned char)
+/var/folders/6v/2vwt01v529l7cbx7ts4b06bm0000gn/T//ccL6URiB.s:119    .text._Z6randoml:00000000 random(long)
+/var/folders/6v/2vwt01v529l7cbx7ts4b06bm0000gn/T//ccL6URiB.s:171    .text._Z6randomll:00000000 random(long, long)
+/var/folders/6v/2vwt01v529l7cbx7ts4b06bm0000gn/T//ccL6URiB.s:223    .text._Z10randomSeedj:00000000 randomSeed(unsigned int)
+
+UNDEFINED SYMBOLS
+__do_copy_data
+__do_clear_bss
+__prologue_saves__
+__mulsi3
+__divmodsi4
+__epilogue_restores__
+random
+srandom

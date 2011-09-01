@@ -1,0 +1,231 @@
+   1               		.file	"WInterrupts.c"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__CCP__  = 0x34
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+   8               		.global __do_copy_data
+   9               		.global __do_clear_bss
+  17               	.Ltext0:
+  18               		.section	.text.attachInterrupt,"ax",@progbits
+  19               	.global	attachInterrupt
+  21               	attachInterrupt:
+  22               	.LFB7:
+  23               	.LSM0:
+  24               	.LVL0:
+  25               	/* prologue: function */
+  26               	/* frame size = 0 */
+  27               	.LSM1:
+  28 0000 8230      		cpi r24,lo8(2)
+  29 0002 00F4      		brsh .L5
+  30               	.LSM2:
+  31 0004 E82F      		mov r30,r24
+  32 0006 F0E0      		ldi r31,lo8(0)
+  33 0008 EE0F      		lsl r30
+  34 000a FF1F      		rol r31
+  35 000c E050      		subi r30,lo8(-(intFunc))
+  36 000e F040      		sbci r31,hi8(-(intFunc))
+  37 0010 7183      		std Z+1,r23
+  38 0012 6083      		st Z,r22
+  39               	.LSM3:
+  40 0014 8823      		tst r24
+  41 0016 01F0      		breq .L3
+  42 0018 8130      		cpi r24,lo8(1)
+  43 001a 01F4      		brne .L5
+  44 001c 00C0      		rjmp .L6
+  45               	.L3:
+  46               	.LSM4:
+  47 001e 8091 6900 		lds r24,105
+  48               	.LVL1:
+  49 0022 8C7F      		andi r24,lo8(-4)
+  50 0024 842B      		or r24,r20
+  51 0026 8093 6900 		sts 105,r24
+  52               	.LSM5:
+  53 002a E89A      		sbi 61-32,0
+  54 002c 0895      		ret
+  55               	.LVL2:
+  56               	.L6:
+  57               	.LSM6:
+  58 002e 8091 6900 		lds r24,105
+  59               	.LVL3:
+  60 0032 440F      		lsl r20
+  61 0034 551F      		rol r21
+  62 0036 440F      		lsl r20
+  63 0038 551F      		rol r21
+  64               	.LVL4:
+  65 003a 837F      		andi r24,lo8(-13)
+  66 003c 842B      		or r24,r20
+  67 003e 8093 6900 		sts 105,r24
+  68               	.LSM7:
+  69 0042 E99A      		sbi 61-32,1
+  70               	.LVL5:
+  71               	.L5:
+  72 0044 0895      		ret
+  73               	.LFE7:
+  75               		.section	.text.detachInterrupt,"ax",@progbits
+  76               	.global	detachInterrupt
+  78               	detachInterrupt:
+  79               	.LFB8:
+  80               	.LSM8:
+  81               	.LVL6:
+  82               	/* prologue: function */
+  83               	/* frame size = 0 */
+  84               	.LSM9:
+  85 0000 8230      		cpi r24,lo8(2)
+  86 0002 00F4      		brsh .L12
+  87               	.LSM10:
+  88 0004 8823      		tst r24
+  89 0006 01F0      		breq .L10
+  90 0008 8130      		cpi r24,lo8(1)
+  91 000a 01F4      		brne .L9
+  92 000c 00C0      		rjmp .L13
+  93               	.L10:
+  94               	.LSM11:
+  95 000e E898      		cbi 61-32,0
+  96 0010 00C0      		rjmp .L9
+  97               	.L13:
+  98               	.LSM12:
+  99 0012 E998      		cbi 61-32,1
+ 100               	.L9:
+ 101               	.LSM13:
+ 102 0014 E82F      		mov r30,r24
+ 103 0016 F0E0      		ldi r31,lo8(0)
+ 104 0018 EE0F      		lsl r30
+ 105 001a FF1F      		rol r31
+ 106 001c E050      		subi r30,lo8(-(intFunc))
+ 107 001e F040      		sbci r31,hi8(-(intFunc))
+ 108 0020 1182      		std Z+1,__zero_reg__
+ 109 0022 1082      		st Z,__zero_reg__
+ 110               	.L12:
+ 111 0024 0895      		ret
+ 112               	.LFE8:
+ 114               		.section	.text.__vector_1,"ax",@progbits
+ 115               	.global	__vector_1
+ 117               	__vector_1:
+ 118               	.LFB9:
+ 119               	.LSM14:
+ 120 0000 1F92      		push __zero_reg__
+ 121 0002 0F92      		push r0
+ 122 0004 0FB6      		in r0,__SREG__
+ 123 0006 0F92      		push r0
+ 124 0008 1124      		clr __zero_reg__
+ 125 000a 2F93      		push r18
+ 126 000c 3F93      		push r19
+ 127 000e 4F93      		push r20
+ 128 0010 5F93      		push r21
+ 129 0012 6F93      		push r22
+ 130 0014 7F93      		push r23
+ 131 0016 8F93      		push r24
+ 132 0018 9F93      		push r25
+ 133 001a AF93      		push r26
+ 134 001c BF93      		push r27
+ 135 001e EF93      		push r30
+ 136 0020 FF93      		push r31
+ 137               	/* prologue: Signal */
+ 138               	/* frame size = 0 */
+ 139               	.LSM15:
+ 140 0022 8091 0000 		lds r24,intFunc
+ 141 0026 9091 0000 		lds r25,(intFunc)+1
+ 142 002a 892B      		or r24,r25
+ 143 002c 01F0      		breq .L16
+ 144               	.LSM16:
+ 145 002e E091 0000 		lds r30,intFunc
+ 146 0032 F091 0000 		lds r31,(intFunc)+1
+ 147 0036 0995      		icall
+ 148               	.L16:
+ 149               	/* epilogue start */
+ 150               	.LSM17:
+ 151 0038 FF91      		pop r31
+ 152 003a EF91      		pop r30
+ 153 003c BF91      		pop r27
+ 154 003e AF91      		pop r26
+ 155 0040 9F91      		pop r25
+ 156 0042 8F91      		pop r24
+ 157 0044 7F91      		pop r23
+ 158 0046 6F91      		pop r22
+ 159 0048 5F91      		pop r21
+ 160 004a 4F91      		pop r20
+ 161 004c 3F91      		pop r19
+ 162 004e 2F91      		pop r18
+ 163 0050 0F90      		pop r0
+ 164 0052 0FBE      		out __SREG__,r0
+ 165 0054 0F90      		pop r0
+ 166 0056 1F90      		pop __zero_reg__
+ 167 0058 1895      		reti
+ 168               	.LFE9:
+ 170               		.section	.text.__vector_2,"ax",@progbits
+ 171               	.global	__vector_2
+ 173               	__vector_2:
+ 174               	.LFB10:
+ 175               	.LSM18:
+ 176 0000 1F92      		push __zero_reg__
+ 177 0002 0F92      		push r0
+ 178 0004 0FB6      		in r0,__SREG__
+ 179 0006 0F92      		push r0
+ 180 0008 1124      		clr __zero_reg__
+ 181 000a 2F93      		push r18
+ 182 000c 3F93      		push r19
+ 183 000e 4F93      		push r20
+ 184 0010 5F93      		push r21
+ 185 0012 6F93      		push r22
+ 186 0014 7F93      		push r23
+ 187 0016 8F93      		push r24
+ 188 0018 9F93      		push r25
+ 189 001a AF93      		push r26
+ 190 001c BF93      		push r27
+ 191 001e EF93      		push r30
+ 192 0020 FF93      		push r31
+ 193               	/* prologue: Signal */
+ 194               	/* frame size = 0 */
+ 195               	.LSM19:
+ 196 0022 8091 0000 		lds r24,intFunc+2
+ 197 0026 9091 0000 		lds r25,(intFunc+2)+1
+ 198 002a 892B      		or r24,r25
+ 199 002c 01F0      		breq .L19
+ 200               	.LSM20:
+ 201 002e E091 0000 		lds r30,intFunc+2
+ 202 0032 F091 0000 		lds r31,(intFunc+2)+1
+ 203 0036 0995      		icall
+ 204               	.L19:
+ 205               	/* epilogue start */
+ 206               	.LSM21:
+ 207 0038 FF91      		pop r31
+ 208 003a EF91      		pop r30
+ 209 003c BF91      		pop r27
+ 210 003e AF91      		pop r26
+ 211 0040 9F91      		pop r25
+ 212 0042 8F91      		pop r24
+ 213 0044 7F91      		pop r23
+ 214 0046 6F91      		pop r22
+ 215 0048 5F91      		pop r21
+ 216 004a 4F91      		pop r20
+ 217 004c 3F91      		pop r19
+ 218 004e 2F91      		pop r18
+ 219 0050 0F90      		pop r0
+ 220 0052 0FBE      		out __SREG__,r0
+ 221 0054 0F90      		pop r0
+ 222 0056 1F90      		pop __zero_reg__
+ 223 0058 1895      		reti
+ 224               	.LFE10:
+ 226               		.section	.bss.intFunc,"aw",@nobits
+ 229               	intFunc:
+ 230 0000 0000 0000 		.skip 4,0
+ 279               	.Letext0:
+DEFINED SYMBOLS
+                            *ABS*:00000000 WInterrupts.c
+/var/folders/6v/2vwt01v529l7cbx7ts4b06bm0000gn/T//cc5pAEDa.s:2      *ABS*:0000003f __SREG__
+/var/folders/6v/2vwt01v529l7cbx7ts4b06bm0000gn/T//cc5pAEDa.s:3      *ABS*:0000003e __SP_H__
+/var/folders/6v/2vwt01v529l7cbx7ts4b06bm0000gn/T//cc5pAEDa.s:4      *ABS*:0000003d __SP_L__
+/var/folders/6v/2vwt01v529l7cbx7ts4b06bm0000gn/T//cc5pAEDa.s:5      *ABS*:00000034 __CCP__
+/var/folders/6v/2vwt01v529l7cbx7ts4b06bm0000gn/T//cc5pAEDa.s:6      *ABS*:00000000 __tmp_reg__
+/var/folders/6v/2vwt01v529l7cbx7ts4b06bm0000gn/T//cc5pAEDa.s:7      *ABS*:00000001 __zero_reg__
+/var/folders/6v/2vwt01v529l7cbx7ts4b06bm0000gn/T//cc5pAEDa.s:21     .text.attachInterrupt:00000000 attachInterrupt
+/var/folders/6v/2vwt01v529l7cbx7ts4b06bm0000gn/T//cc5pAEDa.s:229    .bss.intFunc:00000000 intFunc
+/var/folders/6v/2vwt01v529l7cbx7ts4b06bm0000gn/T//cc5pAEDa.s:78     .text.detachInterrupt:00000000 detachInterrupt
+/var/folders/6v/2vwt01v529l7cbx7ts4b06bm0000gn/T//cc5pAEDa.s:117    .text.__vector_1:00000000 __vector_1
+/var/folders/6v/2vwt01v529l7cbx7ts4b06bm0000gn/T//cc5pAEDa.s:173    .text.__vector_2:00000000 __vector_2
+
+UNDEFINED SYMBOLS
+__do_copy_data
+__do_clear_bss
