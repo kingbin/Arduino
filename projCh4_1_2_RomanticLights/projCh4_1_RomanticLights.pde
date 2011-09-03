@@ -73,7 +73,7 @@ void setup() {
 
 void loop() {
   // make sure everything we need is in the buffer
-  if (Serial.available() >= 21) {
+  if (Serial.available() >= 23) {
   // look for the start byte
     if (Serial.read() == 0x7E) {
       //blink debug LED to indicate when data is received
@@ -81,7 +81,7 @@ void loop() {
       delay(10);
       digitalWrite(debugLED, LOW);
       // read the variables that we're not using out of the buffer
-      for (int i = 0; i<18; i++) {
+      for (int i = 0; i<20; i++) {
         byte discard = Serial.read();
       }
       int analogHigh = Serial.read();
