@@ -1,0 +1,989 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!--NewPage-->
+<HTML>
+<HEAD>
+<TITLE>
+XBeeXmpp
+</TITLE>
+
+
+<LINK REL ="stylesheet" TYPE="text/css" HREF="../../../../stylesheet.css" TITLE="Style">
+
+<SCRIPT type="text/javascript">
+function windowTitle()
+{
+    if (location.href.indexOf('is-external=true') == -1) {
+        parent.document.title="XBeeXmpp";
+    }
+}
+</SCRIPT>
+<NOSCRIPT>
+</NOSCRIPT>
+
+</HEAD>
+
+<BODY BGCOLOR="white" onload="windowTitle();">
+<HR>
+
+
+<!-- ========= START OF TOP NAVBAR ======= -->
+<A NAME="navbar_top"><!-- --></A>
+<A HREF="#skip-navbar_top" title="Skip navigation links"></A>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_top_firstrow"><!-- --></A>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
+  <TR ALIGN="center" VALIGN="top">
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Class</B></FONT>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
+</EM>
+</TD>
+</TR>
+
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+&nbsp;<A HREF="../../../../com/rapplogic/xbee/xmpp/XBeeOpenfireCommon.html" title="class in com.rapplogic.xbee.xmpp"><B>PREV CLASS</B></A>&nbsp;
+&nbsp;<A HREF="../../../../com/rapplogic/xbee/xmpp/XBeeXmppPacket.html" title="class in com.rapplogic.xbee.xmpp"><B>NEXT CLASS</B></A></FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+  <A HREF="../../../../index.html?com/rapplogic/xbee/xmpp/XBeeXmpp.html" target="_top"><B>FRAMES</B></A>  &nbsp;
+&nbsp;<A HREF="XBeeXmpp.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
+&nbsp;<SCRIPT type="text/javascript">
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="../../../../allclasses-noframe.html"><B>All Classes</B></A>');
+  }
+  //-->
+</SCRIPT>
+<NOSCRIPT>
+  <A HREF="../../../../allclasses-noframe.html"><B>All Classes</B></A>
+</NOSCRIPT>
+
+
+</FONT></TD>
+</TR>
+<TR>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+  SUMMARY:&nbsp;NESTED&nbsp;|&nbsp;FIELD&nbsp;|&nbsp;<A HREF="#constructor_summary">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_summary">METHOD</A></FONT></TD>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+DETAIL:&nbsp;FIELD&nbsp;|&nbsp;<A HREF="#constructor_detail">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_detail">METHOD</A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_top"></A>
+<!-- ========= END OF TOP NAVBAR ========= -->
+
+<HR>
+<!-- ======== START OF CLASS DATA ======== -->
+<H2>
+<FONT SIZE="-1">
+com.rapplogic.xbee.xmpp</FONT>
+<BR>
+Class XBeeXmpp</H2>
+<PRE>
+java.lang.Object
+  <IMG SRC="../../../../resources/inherit.gif" ALT="extended by "><B>com.rapplogic.xbee.xmpp.XBeeXmpp</B>
+</PRE>
+<DL>
+<DT><B>All Implemented Interfaces:</B> <DD>org.jivesoftware.smack.MessageListener, org.jivesoftware.smack.RosterListener</DD>
+</DL>
+<DL>
+<DT><B>Direct Known Subclasses:</B> <DD><A HREF="../../../../com/rapplogic/xbee/xmpp/XBeeXmppPacket.html" title="class in com.rapplogic.xbee.xmpp">XBeeXmppPacket</A></DD>
+</DL>
+<HR>
+<DL>
+<DT><PRE>public abstract class <B>XBeeXmpp</B><DT>extends java.lang.Object<DT>implements org.jivesoftware.smack.MessageListener, org.jivesoftware.smack.RosterListener</DL>
+</PRE>
+
+<P>
+Includes common functionality for gateways and clients.
+ <p/>
+ Automatically subscribes to all users in getRosterList on startup, if not already subscribed.
+ <p/>
+ Note: if you send a message to a recipient, whom is not subscribed to you, the message will be echoed back
+ in processMessage(..).  The recipient will get a "so and so wants to add you as a friend yes/no" (if using Google Talk)
+ <p/>
+ Google talk will allow multiple connections with the same login, but messages will not be broadcast to all connections;
+ instead messages will echo back to processMessage
+<P>
+
+<P>
+<HR>
+
+<P>
+
+<!-- ======== CONSTRUCTOR SUMMARY ======== -->
+
+<A NAME="constructor_summary"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Constructor Summary</B></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../com/rapplogic/xbee/xmpp/XBeeXmpp.html#XBeeXmpp(java.lang.String, java.lang.Integer, java.lang.String, java.lang.String)">XBeeXmpp</A></B>(java.lang.String&nbsp;server,
+         java.lang.Integer&nbsp;port,
+         java.lang.String&nbsp;user,
+         java.lang.String&nbsp;password)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+</TABLE>
+&nbsp;
+<!-- ========== METHOD SUMMARY =========== -->
+
+<A NAME="method_summary"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Method Summary</B></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../com/rapplogic/xbee/xmpp/XBeeXmpp.html#addPacketListener(com.rapplogic.xbee.api.PacketListener)">addPacketListener</A></B>(com.rapplogic.xbee.api.PacketListener&nbsp;listener)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../com/rapplogic/xbee/xmpp/XBeeXmpp.html#addPresenceListener(com.rapplogic.xbee.xmpp.PresenceListener)">addPresenceListener</A></B>(<A HREF="../../../../com/rapplogic/xbee/xmpp/PresenceListener.html" title="interface in com.rapplogic.xbee.xmpp">PresenceListener</A>&nbsp;listener)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>protected abstract &nbsp;org.jivesoftware.smack.XMPPConnection</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../com/rapplogic/xbee/xmpp/XBeeXmpp.html#connect()">connect</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Subclass must implement to connect to XMPP provider
+ After successful connection setConnection(XMPPConnection) must be called.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../com/rapplogic/xbee/xmpp/XBeeXmpp.html#entriesAdded(java.util.Collection)">entriesAdded</A></B>(java.util.Collection&lt;java.lang.String&gt;&nbsp;addresses)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Called when a roster subscription is sent/received
+ This fires on the instance where roster.addEntry is called
+ Default Smack policy is to accept all roster subscriptions.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../com/rapplogic/xbee/xmpp/XBeeXmpp.html#entriesDeleted(java.util.Collection)">entriesDeleted</A></B>(java.util.Collection&lt;java.lang.String&gt;&nbsp;addresses)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../com/rapplogic/xbee/xmpp/XBeeXmpp.html#entriesUpdated(java.util.Collection)">entriesUpdated</A></B>(java.util.Collection&lt;java.lang.String&gt;&nbsp;addresses)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Called when subscription is approved? and addEntry request</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.util.HashMap&lt;java.lang.String,org.jivesoftware.smack.Chat&gt;</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../com/rapplogic/xbee/xmpp/XBeeXmpp.html#getChatMap()">getChatMap</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;org.jivesoftware.smack.XMPPConnection</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../com/rapplogic/xbee/xmpp/XBeeXmpp.html#getConnection()">getConnection</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>protected &nbsp;java.util.List&lt;com.rapplogic.xbee.api.PacketListener&gt;</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../com/rapplogic/xbee/xmpp/XBeeXmpp.html#getPacketListeners()">getPacketListeners</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.lang.String</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../com/rapplogic/xbee/xmpp/XBeeXmpp.html#getPassword()">getPassword</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.lang.Integer</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../com/rapplogic/xbee/xmpp/XBeeXmpp.html#getPort()">getPort</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.util.Hashtable&lt;java.lang.String,java.lang.Boolean&gt;</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../com/rapplogic/xbee/xmpp/XBeeXmpp.html#getPresenceMap()">getPresenceMap</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Contains an entry for each recipient; true if user is only false/null otherwise</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>protected abstract &nbsp;java.util.List&lt;java.lang.String&gt;</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../com/rapplogic/xbee/xmpp/XBeeXmpp.html#getRosterList()">getRosterList</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;In order to curtail spam/unsolicited messages,
+ XMPP devised a subscription/invitation model.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.lang.String</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../com/rapplogic/xbee/xmpp/XBeeXmpp.html#getServer()">getServer</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.lang.String</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../com/rapplogic/xbee/xmpp/XBeeXmpp.html#getUser()">getUser</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../com/rapplogic/xbee/xmpp/XBeeXmpp.html#initXmpp()">initXmpp</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Connects to XMPP server and subscribes to XMPP users, if necessary</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>protected abstract &nbsp;boolean</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../com/rapplogic/xbee/xmpp/XBeeXmpp.html#isAvailable(org.jivesoftware.smack.packet.Presence)">isAvailable</A></B>(org.jivesoftware.smack.packet.Presence&nbsp;presence)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Subclass must implement to determine if the user (client or gateway) is online and able to receive packets.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;boolean</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../com/rapplogic/xbee/xmpp/XBeeXmpp.html#isOfflineMessages()">isOfflineMessages</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Returns true if offline messages are enabled</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;boolean</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../com/rapplogic/xbee/xmpp/XBeeXmpp.html#isValidSender(java.lang.String, java.lang.String)">isValidSender</A></B>(java.lang.String&nbsp;sender,
+              java.lang.String&nbsp;body)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Determines if the sender is valid.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../com/rapplogic/xbee/xmpp/XBeeXmpp.html#presenceChanged(org.jivesoftware.smack.packet.Presence)">presenceChanged</A></B>(org.jivesoftware.smack.packet.Presence&nbsp;presence)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../com/rapplogic/xbee/xmpp/XBeeXmpp.html#removePacketListener(com.rapplogic.xbee.xmpp.PresenceListener)">removePacketListener</A></B>(<A HREF="../../../../com/rapplogic/xbee/xmpp/PresenceListener.html" title="interface in com.rapplogic.xbee.xmpp">PresenceListener</A>&nbsp;listener)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../com/rapplogic/xbee/xmpp/XBeeXmpp.html#setConnection(org.jivesoftware.smack.XMPPConnection)">setConnection</A></B>(org.jivesoftware.smack.XMPPConnection&nbsp;connection)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../com/rapplogic/xbee/xmpp/XBeeXmpp.html#setOfflineMessages(boolean)">setOfflineMessages</A></B>(boolean&nbsp;offlineMessages)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Set to true to enable offline messages.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../com/rapplogic/xbee/xmpp/XBeeXmpp.html#setPassword(java.lang.String)">setPassword</A></B>(java.lang.String&nbsp;password)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../com/rapplogic/xbee/xmpp/XBeeXmpp.html#setPort(java.lang.Integer)">setPort</A></B>(java.lang.Integer&nbsp;port)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../com/rapplogic/xbee/xmpp/XBeeXmpp.html#setServer(java.lang.String)">setServer</A></B>(java.lang.String&nbsp;server)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../com/rapplogic/xbee/xmpp/XBeeXmpp.html#setUser(java.lang.String)">setUser</A></B>(java.lang.String&nbsp;user)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../com/rapplogic/xbee/xmpp/XBeeXmpp.html#shutdown()">shutdown</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../com/rapplogic/xbee/xmpp/XBeeXmpp.html#verifyPresence(java.lang.String)">verifyPresence</A></B>(java.lang.String&nbsp;sender)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This appears to be a bug in Openfire and/or Smack where presence "available" is not sent during sign-on
+ for senders/recipients that are in fact "available".</TD>
+</TR>
+</TABLE>
+&nbsp;<A NAME="methods_inherited_from_class_java.lang.Object"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left"><B>Methods inherited from class java.lang.Object</B></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE>clone, equals, finalize, getClass, hashCode, notify, notifyAll, toString, wait, wait, wait</CODE></TD>
+</TR>
+</TABLE>
+&nbsp;<A NAME="methods_inherited_from_class_org.jivesoftware.smack.MessageListener"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left"><B>Methods inherited from interface org.jivesoftware.smack.MessageListener</B></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE>processMessage</CODE></TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+
+<A NAME="constructor_detail"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="1"><FONT SIZE="+2">
+<B>Constructor Detail</B></FONT></TH>
+</TR>
+</TABLE>
+
+<A NAME="XBeeXmpp(java.lang.String, java.lang.Integer, java.lang.String, java.lang.String)"><!-- --></A><H3>
+XBeeXmpp</H3>
+<PRE>
+public <B>XBeeXmpp</B>(java.lang.String&nbsp;server,
+                java.lang.Integer&nbsp;port,
+                java.lang.String&nbsp;user,
+                java.lang.String&nbsp;password)</PRE>
+<DL>
+</DL>
+
+<!-- ============ METHOD DETAIL ========== -->
+
+<A NAME="method_detail"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="1"><FONT SIZE="+2">
+<B>Method Detail</B></FONT></TH>
+</TR>
+</TABLE>
+
+<A NAME="addPacketListener(com.rapplogic.xbee.api.PacketListener)"><!-- --></A><H3>
+addPacketListener</H3>
+<PRE>
+public void <B>addPacketListener</B>(com.rapplogic.xbee.api.PacketListener&nbsp;listener)</PRE>
+<DL>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getPacketListeners()"><!-- --></A><H3>
+getPacketListeners</H3>
+<PRE>
+protected java.util.List&lt;com.rapplogic.xbee.api.PacketListener&gt; <B>getPacketListeners</B>()</PRE>
+<DL>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="addPresenceListener(com.rapplogic.xbee.xmpp.PresenceListener)"><!-- --></A><H3>
+addPresenceListener</H3>
+<PRE>
+public void <B>addPresenceListener</B>(<A HREF="../../../../com/rapplogic/xbee/xmpp/PresenceListener.html" title="interface in com.rapplogic.xbee.xmpp">PresenceListener</A>&nbsp;listener)</PRE>
+<DL>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="removePacketListener(com.rapplogic.xbee.xmpp.PresenceListener)"><!-- --></A><H3>
+removePacketListener</H3>
+<PRE>
+public void <B>removePacketListener</B>(<A HREF="../../../../com/rapplogic/xbee/xmpp/PresenceListener.html" title="interface in com.rapplogic.xbee.xmpp">PresenceListener</A>&nbsp;listener)</PRE>
+<DL>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getPresenceMap()"><!-- --></A><H3>
+getPresenceMap</H3>
+<PRE>
+public java.util.Hashtable&lt;java.lang.String,java.lang.Boolean&gt; <B>getPresenceMap</B>()</PRE>
+<DL>
+<DD>Contains an entry for each recipient; true if user is only false/null otherwise
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getConnection()"><!-- --></A><H3>
+getConnection</H3>
+<PRE>
+public org.jivesoftware.smack.XMPPConnection <B>getConnection</B>()</PRE>
+<DL>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setConnection(org.jivesoftware.smack.XMPPConnection)"><!-- --></A><H3>
+setConnection</H3>
+<PRE>
+public void <B>setConnection</B>(org.jivesoftware.smack.XMPPConnection&nbsp;connection)</PRE>
+<DL>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getUser()"><!-- --></A><H3>
+getUser</H3>
+<PRE>
+public java.lang.String <B>getUser</B>()</PRE>
+<DL>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setUser(java.lang.String)"><!-- --></A><H3>
+setUser</H3>
+<PRE>
+public void <B>setUser</B>(java.lang.String&nbsp;user)</PRE>
+<DL>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getPassword()"><!-- --></A><H3>
+getPassword</H3>
+<PRE>
+public java.lang.String <B>getPassword</B>()</PRE>
+<DL>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setPassword(java.lang.String)"><!-- --></A><H3>
+setPassword</H3>
+<PRE>
+public void <B>setPassword</B>(java.lang.String&nbsp;password)</PRE>
+<DL>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getServer()"><!-- --></A><H3>
+getServer</H3>
+<PRE>
+public java.lang.String <B>getServer</B>()</PRE>
+<DL>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setServer(java.lang.String)"><!-- --></A><H3>
+setServer</H3>
+<PRE>
+public void <B>setServer</B>(java.lang.String&nbsp;server)</PRE>
+<DL>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getPort()"><!-- --></A><H3>
+getPort</H3>
+<PRE>
+public java.lang.Integer <B>getPort</B>()</PRE>
+<DL>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setPort(java.lang.Integer)"><!-- --></A><H3>
+setPort</H3>
+<PRE>
+public void <B>setPort</B>(java.lang.Integer&nbsp;port)</PRE>
+<DL>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getChatMap()"><!-- --></A><H3>
+getChatMap</H3>
+<PRE>
+public java.util.HashMap&lt;java.lang.String,org.jivesoftware.smack.Chat&gt; <B>getChatMap</B>()</PRE>
+<DL>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="connect()"><!-- --></A><H3>
+connect</H3>
+<PRE>
+protected abstract org.jivesoftware.smack.XMPPConnection <B>connect</B>()
+                                                          throws org.jivesoftware.smack.XMPPException</PRE>
+<DL>
+<DD>Subclass must implement to connect to XMPP provider
+ After successful connection setConnection(XMPPConnection) must be called.
+ 
+ TODO this should return the XMPP connection object
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+
+<DT><B>Throws:</B>
+<DD><CODE>org.jivesoftware.smack.XMPPException</CODE></DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getRosterList()"><!-- --></A><H3>
+getRosterList</H3>
+<PRE>
+protected abstract java.util.List&lt;java.lang.String&gt; <B>getRosterList</B>()</PRE>
+<DL>
+<DD>In order to curtail spam/unsolicited messages,
+ XMPP devised a subscription/invitation model.  When you subscribe 
+ to another user (add to your roster), you can see their presence but
+ can't send them messages yet.  The other user must reciprocate and add
+ you to their roster.  Once this is complete both users can exchange
+ messages
+ <p/>
+ Subclass must implement to provide the list of XMPP users 
+ that this user would like to talk with.  If not already in
+ the users roster, these users will receive an invitation request.
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+
+<DT><B>Returns:</B><DD></DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="isAvailable(org.jivesoftware.smack.packet.Presence)"><!-- --></A><H3>
+isAvailable</H3>
+<PRE>
+protected abstract boolean <B>isAvailable</B>(org.jivesoftware.smack.packet.Presence&nbsp;presence)</PRE>
+<DL>
+<DD>Subclass must implement to determine if the user (client or gateway) is online and able to receive packets.
+ If this method returns true for a gateway, it means the gateway
+ will delivery the packet to the client.  For clients, this method must return true
+ for the client to deliver the packet to the gateway.
+ <p/>
+ Unfortunately the Presence object does not
+ provide methods for away, available etc.; instead the presence string
+ presence.toString(), must be evaluated.
+ <p/>
+ The subclass should returns true only if the remote user is able to receive messages.
+ <p/>
+ The presence string varies depending on client sending the presence.
+ <br/>
+ Google Talk uses "available ()" and the "dnd" token to represent busy (e.g. "available: dnd ()" for busy) <br/>
+ Google Talk will send "available: away ()"  when it thinks the computer is idle <br/>
+ Google Talk custom status are placed within parentheses (e.g. "available (Grrrr)") <br/>
+ iChat seems to send "available" or "available (At home)" where the custom status is in parentheses <br/>
+ iChat sends "available: xa" if user is online but away <br/>
+ Both Google Talk and iChat send "unavailable" when a user signs out. <br/>  
+ So to summarize: <br/>
+ If presence contains "available: dnd" or available: away,  Google Talk user is online but away/busy. <br/>  
+                I believe "dnd" indicates the user set the status, where the "away" status is set by Google Talk <br/>
+ If presence contains "available: xa", iChat user is online but away/busy <br/>
+ If presence contains unavailable, user is not online <br/>
+ Otherwise user is considered online and available <br/>
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>presence</CODE> - 
+<DT><B>Returns:</B><DD></DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="entriesAdded(java.util.Collection)"><!-- --></A><H3>
+entriesAdded</H3>
+<PRE>
+public void <B>entriesAdded</B>(java.util.Collection&lt;java.lang.String&gt;&nbsp;addresses)</PRE>
+<DL>
+<DD>Called when a roster subscription is sent/received
+ This fires on the instance where roster.addEntry is called
+ Default Smack policy is to accept all roster subscriptions.
+<P>
+<DD><DL>
+<DT><B>Specified by:</B><DD><CODE>entriesAdded</CODE> in interface <CODE>org.jivesoftware.smack.RosterListener</CODE></DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="entriesDeleted(java.util.Collection)"><!-- --></A><H3>
+entriesDeleted</H3>
+<PRE>
+public void <B>entriesDeleted</B>(java.util.Collection&lt;java.lang.String&gt;&nbsp;addresses)</PRE>
+<DL>
+<DD><DL>
+<DT><B>Specified by:</B><DD><CODE>entriesDeleted</CODE> in interface <CODE>org.jivesoftware.smack.RosterListener</CODE></DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="entriesUpdated(java.util.Collection)"><!-- --></A><H3>
+entriesUpdated</H3>
+<PRE>
+public void <B>entriesUpdated</B>(java.util.Collection&lt;java.lang.String&gt;&nbsp;addresses)</PRE>
+<DL>
+<DD>Called when subscription is approved? and addEntry request
+<P>
+<DD><DL>
+<DT><B>Specified by:</B><DD><CODE>entriesUpdated</CODE> in interface <CODE>org.jivesoftware.smack.RosterListener</CODE></DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="presenceChanged(org.jivesoftware.smack.packet.Presence)"><!-- --></A><H3>
+presenceChanged</H3>
+<PRE>
+public void <B>presenceChanged</B>(org.jivesoftware.smack.packet.Presence&nbsp;presence)</PRE>
+<DL>
+<DD><DL>
+<DT><B>Specified by:</B><DD><CODE>presenceChanged</CODE> in interface <CODE>org.jivesoftware.smack.RosterListener</CODE></DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="verifyPresence(java.lang.String)"><!-- --></A><H3>
+verifyPresence</H3>
+<PRE>
+public void <B>verifyPresence</B>(java.lang.String&nbsp;sender)</PRE>
+<DL>
+<DD>This appears to be a bug in Openfire and/or Smack where presence "available" is not sent during sign-on
+ for senders/recipients that are in fact "available".  This is a patch/workaround to the issue.
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>sender</CODE> - Jan 24, 2009</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="isValidSender(java.lang.String, java.lang.String)"><!-- --></A><H3>
+isValidSender</H3>
+<PRE>
+public boolean <B>isValidSender</B>(java.lang.String&nbsp;sender,
+                             java.lang.String&nbsp;body)</PRE>
+<DL>
+<DD>Determines if the sender is valid.  
+ In general only XMPP users in your roster can send you messages, so this may be redundant.
+ This checks to make sure the user is in your roster list.
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>sender</CODE> - <DD><CODE>body</CODE> - 
+<DT><B>Returns:</B><DD>Jan 24, 2009</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="initXmpp()"><!-- --></A><H3>
+initXmpp</H3>
+<PRE>
+public void <B>initXmpp</B>()
+              throws org.jivesoftware.smack.XMPPException</PRE>
+<DL>
+<DD>Connects to XMPP server and subscribes to XMPP users, if necessary
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+
+<DT><B>Throws:</B>
+<DD><CODE>org.jivesoftware.smack.XMPPException</CODE> - Jan 24, 2009</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="shutdown()"><!-- --></A><H3>
+shutdown</H3>
+<PRE>
+public void <B>shutdown</B>()</PRE>
+<DL>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="isOfflineMessages()"><!-- --></A><H3>
+isOfflineMessages</H3>
+<PRE>
+public boolean <B>isOfflineMessages</B>()</PRE>
+<DL>
+<DD>Returns true if offline messages are enabled
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>Feb 25, 2009</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setOfflineMessages(boolean)"><!-- --></A><H3>
+setOfflineMessages</H3>
+<PRE>
+public void <B>setOfflineMessages</B>(boolean&nbsp;offlineMessages)</PRE>
+<DL>
+<DD>Set to true to enable offline messages.  The default setting is false
+ <p/>
+ If you are using Openfire, you must enable offline messages via the admin console.
+ Google talk supports offline message by default.
+ <p/>
+ If you are enabling this setting from a gateway, it means that packets to clients will be queued
+ until the client is back online.
+ <p/>
+ If you are enabling this setting from a client, it means that packets will be delivered when
+ the gateway comes back online.
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>offlineMessages</CODE> - Feb 25, 2009</DL>
+</DD>
+</DL>
+<!-- ========= END OF CLASS DATA ========= -->
+<HR>
+
+
+<!-- ======= START OF BOTTOM NAVBAR ====== -->
+<A NAME="navbar_bottom"><!-- --></A>
+<A HREF="#skip-navbar_bottom" title="Skip navigation links"></A>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_bottom_firstrow"><!-- --></A>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
+  <TR ALIGN="center" VALIGN="top">
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Class</B></FONT>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
+</EM>
+</TD>
+</TR>
+
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+&nbsp;<A HREF="../../../../com/rapplogic/xbee/xmpp/XBeeOpenfireCommon.html" title="class in com.rapplogic.xbee.xmpp"><B>PREV CLASS</B></A>&nbsp;
+&nbsp;<A HREF="../../../../com/rapplogic/xbee/xmpp/XBeeXmppPacket.html" title="class in com.rapplogic.xbee.xmpp"><B>NEXT CLASS</B></A></FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+  <A HREF="../../../../index.html?com/rapplogic/xbee/xmpp/XBeeXmpp.html" target="_top"><B>FRAMES</B></A>  &nbsp;
+&nbsp;<A HREF="XBeeXmpp.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
+&nbsp;<SCRIPT type="text/javascript">
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="../../../../allclasses-noframe.html"><B>All Classes</B></A>');
+  }
+  //-->
+</SCRIPT>
+<NOSCRIPT>
+  <A HREF="../../../../allclasses-noframe.html"><B>All Classes</B></A>
+</NOSCRIPT>
+
+
+</FONT></TD>
+</TR>
+<TR>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+  SUMMARY:&nbsp;NESTED&nbsp;|&nbsp;FIELD&nbsp;|&nbsp;<A HREF="#constructor_summary">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_summary">METHOD</A></FONT></TD>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+DETAIL:&nbsp;FIELD&nbsp;|&nbsp;<A HREF="#constructor_detail">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_detail">METHOD</A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_bottom"></A>
+<!-- ======== END OF BOTTOM NAVBAR ======= -->
+
+<HR>
+
+</BODY>
+</HTML>
