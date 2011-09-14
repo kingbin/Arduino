@@ -1,0 +1,118 @@
+   1               		.file	"pins_arduino.c"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__CCP__  = 0x34
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+   8               		.global __do_copy_data
+   9               		.global __do_clear_bss
+  17               	.Ltext0:
+  18               	.global	port_to_mode_PGM
+  19               		.section	.progmem.data,"a",@progbits
+  22               	port_to_mode_PGM:
+  23 0000 0000      		.word	0
+  24 0002 0000      		.word	0
+  25 0004 2400      		.word	36
+  26 0006 2700      		.word	39
+  27 0008 2A00      		.word	42
+  28               	.global	port_to_output_PGM
+  31               	port_to_output_PGM:
+  32 000a 0000      		.word	0
+  33 000c 0000      		.word	0
+  34 000e 2500      		.word	37
+  35 0010 2800      		.word	40
+  36 0012 2B00      		.word	43
+  37               	.global	port_to_input_PGM
+  40               	port_to_input_PGM:
+  41 0014 0000      		.word	0
+  42 0016 0000      		.word	0
+  43 0018 2300      		.word	35
+  44 001a 2600      		.word	38
+  45 001c 2900      		.word	41
+  46               	.global	digital_pin_to_port_PGM
+  49               	digital_pin_to_port_PGM:
+  50 001e 04        		.byte	4
+  51 001f 04        		.byte	4
+  52 0020 04        		.byte	4
+  53 0021 04        		.byte	4
+  54 0022 04        		.byte	4
+  55 0023 04        		.byte	4
+  56 0024 04        		.byte	4
+  57 0025 04        		.byte	4
+  58 0026 02        		.byte	2
+  59 0027 02        		.byte	2
+  60 0028 02        		.byte	2
+  61 0029 02        		.byte	2
+  62 002a 02        		.byte	2
+  63 002b 02        		.byte	2
+  64 002c 03        		.byte	3
+  65 002d 03        		.byte	3
+  66 002e 03        		.byte	3
+  67 002f 03        		.byte	3
+  68 0030 03        		.byte	3
+  69 0031 03        		.byte	3
+  70               	.global	digital_pin_to_bit_mask_PGM
+  73               	digital_pin_to_bit_mask_PGM:
+  74 0032 01        		.byte	1
+  75 0033 02        		.byte	2
+  76 0034 04        		.byte	4
+  77 0035 08        		.byte	8
+  78 0036 10        		.byte	16
+  79 0037 20        		.byte	32
+  80 0038 40        		.byte	64
+  81 0039 80        		.byte	-128
+  82 003a 01        		.byte	1
+  83 003b 02        		.byte	2
+  84 003c 04        		.byte	4
+  85 003d 08        		.byte	8
+  86 003e 10        		.byte	16
+  87 003f 20        		.byte	32
+  88 0040 01        		.byte	1
+  89 0041 02        		.byte	2
+  90 0042 04        		.byte	4
+  91 0043 08        		.byte	8
+  92 0044 10        		.byte	16
+  93 0045 20        		.byte	32
+  94               	.global	digital_pin_to_timer_PGM
+  97               	digital_pin_to_timer_PGM:
+  98 0046 00        		.byte	0
+  99 0047 00        		.byte	0
+ 100 0048 00        		.byte	0
+ 101 0049 07        		.byte	7
+ 102 004a 00        		.byte	0
+ 103 004b 02        		.byte	2
+ 104 004c 01        		.byte	1
+ 105 004d 00        		.byte	0
+ 106 004e 00        		.byte	0
+ 107 004f 03        		.byte	3
+ 108 0050 04        		.byte	4
+ 109 0051 06        		.byte	6
+ 110 0052 00        		.byte	0
+ 111 0053 00        		.byte	0
+ 112 0054 00        		.byte	0
+ 113 0055 00        		.byte	0
+ 114 0056 00        		.byte	0
+ 115 0057 00        		.byte	0
+ 116 0058 00        		.byte	0
+ 117 0059 00        		.byte	0
+ 118               		.text
+ 119               	.Letext0:
+DEFINED SYMBOLS
+                            *ABS*:00000000 pins_arduino.c
+/var/folders/6v/2vwt01v529l7cbx7ts4b06bm0000gn/T//ccffYW16.s:2      *ABS*:0000003f __SREG__
+/var/folders/6v/2vwt01v529l7cbx7ts4b06bm0000gn/T//ccffYW16.s:3      *ABS*:0000003e __SP_H__
+/var/folders/6v/2vwt01v529l7cbx7ts4b06bm0000gn/T//ccffYW16.s:4      *ABS*:0000003d __SP_L__
+/var/folders/6v/2vwt01v529l7cbx7ts4b06bm0000gn/T//ccffYW16.s:5      *ABS*:00000034 __CCP__
+/var/folders/6v/2vwt01v529l7cbx7ts4b06bm0000gn/T//ccffYW16.s:6      *ABS*:00000000 __tmp_reg__
+/var/folders/6v/2vwt01v529l7cbx7ts4b06bm0000gn/T//ccffYW16.s:7      *ABS*:00000001 __zero_reg__
+/var/folders/6v/2vwt01v529l7cbx7ts4b06bm0000gn/T//ccffYW16.s:22     .progmem.data:00000000 port_to_mode_PGM
+/var/folders/6v/2vwt01v529l7cbx7ts4b06bm0000gn/T//ccffYW16.s:31     .progmem.data:0000000a port_to_output_PGM
+/var/folders/6v/2vwt01v529l7cbx7ts4b06bm0000gn/T//ccffYW16.s:40     .progmem.data:00000014 port_to_input_PGM
+/var/folders/6v/2vwt01v529l7cbx7ts4b06bm0000gn/T//ccffYW16.s:49     .progmem.data:0000001e digital_pin_to_port_PGM
+/var/folders/6v/2vwt01v529l7cbx7ts4b06bm0000gn/T//ccffYW16.s:73     .progmem.data:00000032 digital_pin_to_bit_mask_PGM
+/var/folders/6v/2vwt01v529l7cbx7ts4b06bm0000gn/T//ccffYW16.s:97     .progmem.data:00000046 digital_pin_to_timer_PGM
+
+UNDEFINED SYMBOLS
+__do_copy_data
+__do_clear_bss
