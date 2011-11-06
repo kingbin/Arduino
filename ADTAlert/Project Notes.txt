@@ -1,4 +1,17 @@
+Z1 - Front Door
+12v first open, drops to 8v while open, 0v when closed.
 
+Z2 - Garage Door
+12v first open, drops to 8v while open, 0v when closed.
+
+Z3 - Backdoor & Garage Door
+12v first open, drops to 8v while open, 0v when closed.
+
+Z4 - Motion Detector
+
+Z5 - GB Front 3
+
+Z6 - GB Back 3
 
 MAMP 2.0.2 - Mysql 5.5.9 - ruby 1.8.7 Compile
 set  CFLAGS="-m64"
