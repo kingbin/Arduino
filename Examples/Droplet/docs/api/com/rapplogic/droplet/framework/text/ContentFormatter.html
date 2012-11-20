@@ -1,0 +1,700 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!--NewPage-->
+<HTML>
+<HEAD>
+<TITLE>
+ContentFormatter
+</TITLE>
+
+<META NAME="keywords" CONTENT="com.rapplogic.droplet.framework.text.ContentFormatter class">
+
+<LINK REL ="stylesheet" TYPE="text/css" HREF="../../../../../stylesheet.css" TITLE="Style">
+
+<SCRIPT type="text/javascript">
+function windowTitle()
+{
+    parent.document.title="ContentFormatter";
+}
+</SCRIPT>
+<NOSCRIPT>
+</NOSCRIPT>
+
+</HEAD>
+
+<BODY BGCOLOR="white" onload="windowTitle();">
+
+
+<!-- ========= START OF TOP NAVBAR ======= -->
+<A NAME="navbar_top"><!-- --></A>
+<A HREF="#skip-navbar_top" title="Skip navigation links"></A>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_top_firstrow"><!-- --></A>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
+  <TR ALIGN="center" VALIGN="top">
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Class</B></FONT>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
+</EM>
+</TD>
+</TR>
+
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+&nbsp;<A HREF="../../../../../com/rapplogic/droplet/framework/text/Content.html" title="class in com.rapplogic.droplet.framework.text"><B>PREV CLASS</B></A>&nbsp;
+&nbsp;<A HREF="../../../../../com/rapplogic/droplet/framework/text/IContent.html" title="interface in com.rapplogic.droplet.framework.text"><B>NEXT CLASS</B></A></FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+  <A HREF="../../../../../index.html?com/rapplogic/droplet/framework/text/ContentFormatter.html" target="_top"><B>FRAMES</B></A>  &nbsp;
+&nbsp;<A HREF="ContentFormatter.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
+&nbsp;<SCRIPT type="text/javascript">
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="../../../../../allclasses-noframe.html"><B>All Classes</B></A>');
+  }
+  //-->
+</SCRIPT>
+<NOSCRIPT>
+  <A HREF="../../../../../allclasses-noframe.html"><B>All Classes</B></A>
+</NOSCRIPT>
+
+
+</FONT></TD>
+</TR>
+<TR>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+  SUMMARY:&nbsp;NESTED&nbsp;|&nbsp;<A HREF="#field_summary">FIELD</A>&nbsp;|&nbsp;<A HREF="#constructor_summary">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_summary">METHOD</A></FONT></TD>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+DETAIL:&nbsp;<A HREF="#field_detail">FIELD</A>&nbsp;|&nbsp;<A HREF="#constructor_detail">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_detail">METHOD</A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_top"></A>
+<!-- ========= END OF TOP NAVBAR ========= -->
+
+<HR>
+<!-- ======== START OF CLASS DATA ======== -->
+<H2>
+<FONT SIZE="-1">
+com.rapplogic.droplet.framework.text</FONT>
+<BR>
+Class ContentFormatter</H2>
+<PRE>
+java.lang.Object
+  <IMG SRC="../../../../../resources/inherit.gif" ALT="extended by "><B>com.rapplogic.droplet.framework.text.ContentFormatter</B>
+</PRE>
+<HR>
+<DL>
+<DT><PRE>public class <B>ContentFormatter</B><DT>extends java.lang.Object</DL>
+</PRE>
+
+<P>
+Contains logic for structuring a blob of text into one or
+ more Pages for display on a LCD.
+<P>
+
+<P>
+<HR>
+
+<P>
+<!-- =========== FIELD SUMMARY =========== -->
+
+<A NAME="field_summary"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Field Summary</B></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;java.lang.String</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/rapplogic/droplet/framework/text/ContentFormatter.html#CR">CR</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;<A HREF="../../../../../com/rapplogic/droplet/framework/text/ContentFormatter.html" title="class in com.rapplogic.droplet.framework.text">ContentFormatter</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/rapplogic/droplet/framework/text/ContentFormatter.html#instance">instance</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;java.lang.String</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/rapplogic/droplet/framework/text/ContentFormatter.html#LF">LF</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;char</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/rapplogic/droplet/framework/text/ContentFormatter.html#LF_CHAR">LF_CHAR</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;java.lang.String</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/rapplogic/droplet/framework/text/ContentFormatter.html#SPACE">SPACE</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;char</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/rapplogic/droplet/framework/text/ContentFormatter.html#SPACE_CHAR">SPACE_CHAR</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+</TABLE>
+&nbsp;
+<!-- ======== CONSTRUCTOR SUMMARY ======== -->
+
+<A NAME="constructor_summary"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Constructor Summary</B></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../../com/rapplogic/droplet/framework/text/ContentFormatter.html#ContentFormatter()">ContentFormatter</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+</TABLE>
+&nbsp;
+<!-- ========== METHOD SUMMARY =========== -->
+
+<A NAME="method_summary"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Method Summary</B></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;<A HREF="../../../../../com/rapplogic/droplet/framework/text/WordList.html" title="class in com.rapplogic.droplet.framework.text">WordList</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/rapplogic/droplet/framework/text/ContentFormatter.html#chop(java.lang.String)">chop</A></B>(java.lang.String&nbsp;text)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;java.lang.String</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/rapplogic/droplet/framework/text/ContentFormatter.html#cleanseInput(java.lang.String)">cleanseInput</A></B>(java.lang.String&nbsp;text)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Removes characters that are not supported on a standard LCD
+ For example: multibyte characters</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../com/rapplogic/droplet/framework/text/IContent.html" title="interface in com.rapplogic.droplet.framework.text">IContent</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/rapplogic/droplet/framework/text/ContentFormatter.html#format(java.lang.String)">format</A></B>(java.lang.String&nbsp;text)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Parses a arbitrary, unbounded string of text, into a sequence of Pages, represented
+ by an instance of IContent.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;int</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/rapplogic/droplet/framework/text/ContentFormatter.html#getContinuationCharSize()">getContinuationCharSize</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;int</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/rapplogic/droplet/framework/text/ContentFormatter.html#getEffectivePageSize()">getEffectivePageSize</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../com/rapplogic/droplet/framework/text/Page.html" title="class in com.rapplogic.droplet.framework.text">Page</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/rapplogic/droplet/framework/text/ContentFormatter.html#getFirstPage(java.lang.String)">getFirstPage</A></B>(java.lang.String&nbsp;text)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Return only the first page</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;<A HREF="../../../../../com/rapplogic/droplet/framework/text/ContentFormatter.html" title="class in com.rapplogic.droplet.framework.text">ContentFormatter</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/rapplogic/droplet/framework/text/ContentFormatter.html#getInstance()">getInstance</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../com/rapplogic/droplet/framework/LcdProperties.html" title="class in com.rapplogic.droplet.framework">LcdProperties</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/rapplogic/droplet/framework/text/ContentFormatter.html#getLcdProperties()">getLcdProperties</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../com/rapplogic/droplet/framework/text/PaginationRules.html" title="class in com.rapplogic.droplet.framework.text">PaginationRules</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/rapplogic/droplet/framework/text/ContentFormatter.html#getPaginationRules()">getPaginationRules</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/rapplogic/droplet/framework/text/ContentFormatter.html#main(java.lang.String[])">main</A></B>(java.lang.String[]&nbsp;args)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;java.lang.String</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/rapplogic/droplet/framework/text/ContentFormatter.html#removeCarriageReturns(java.lang.String)">removeCarriageReturns</A></B>(java.lang.String&nbsp;text)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;java.lang.String</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/rapplogic/droplet/framework/text/ContentFormatter.html#removeLineFeeds(java.lang.String)">removeLineFeeds</A></B>(java.lang.String&nbsp;text)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;java.lang.String</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/rapplogic/droplet/framework/text/ContentFormatter.html#removeMultiByteCharacters(java.lang.String)">removeMultiByteCharacters</A></B>(java.lang.String&nbsp;s)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LCDs generally only support ASCII and a limited number of extended characters
+ More importantly however, the XBee can only single byte characters.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/rapplogic/droplet/framework/text/ContentFormatter.html#setContinuationCharSize(int)">setContinuationCharSize</A></B>(int&nbsp;continuationCharSize)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/rapplogic/droplet/framework/text/ContentFormatter.html#setLcdProperties(com.rapplogic.droplet.framework.LcdProperties)">setLcdProperties</A></B>(<A HREF="../../../../../com/rapplogic/droplet/framework/LcdProperties.html" title="class in com.rapplogic.droplet.framework">LcdProperties</A>&nbsp;lcdProperties)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../com/rapplogic/droplet/framework/text/ContentFormatter.html#setPaginationRules(com.rapplogic.droplet.framework.text.PaginationRules)">setPaginationRules</A></B>(<A HREF="../../../../../com/rapplogic/droplet/framework/text/PaginationRules.html" title="class in com.rapplogic.droplet.framework.text">PaginationRules</A>&nbsp;paginationRules)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+</TABLE>
+&nbsp;<A NAME="methods_inherited_from_class_java.lang.Object"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left"><B>Methods inherited from class java.lang.Object</B></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE>clone, equals, finalize, getClass, hashCode, notify, notifyAll, toString, wait, wait, wait</CODE></TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<!-- ============ FIELD DETAIL =========== -->
+
+<A NAME="field_detail"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="1"><FONT SIZE="+2">
+<B>Field Detail</B></FONT></TH>
+</TR>
+</TABLE>
+
+<A NAME="instance"><!-- --></A><H3>
+instance</H3>
+<PRE>
+public static final <A HREF="../../../../../com/rapplogic/droplet/framework/text/ContentFormatter.html" title="class in com.rapplogic.droplet.framework.text">ContentFormatter</A> <B>instance</B></PRE>
+<DL>
+<DL>
+</DL>
+</DL>
+<HR>
+
+<A NAME="LF_CHAR"><!-- --></A><H3>
+LF_CHAR</H3>
+<PRE>
+public static final char <B>LF_CHAR</B></PRE>
+<DL>
+<DL>
+<DT><B>See Also:</B><DD><A HREF="../../../../../constant-values.html#com.rapplogic.droplet.framework.text.ContentFormatter.LF_CHAR">Constant Field Values</A></DL>
+</DL>
+<HR>
+
+<A NAME="SPACE_CHAR"><!-- --></A><H3>
+SPACE_CHAR</H3>
+<PRE>
+public static final char <B>SPACE_CHAR</B></PRE>
+<DL>
+<DL>
+<DT><B>See Also:</B><DD><A HREF="../../../../../constant-values.html#com.rapplogic.droplet.framework.text.ContentFormatter.SPACE_CHAR">Constant Field Values</A></DL>
+</DL>
+<HR>
+
+<A NAME="CR"><!-- --></A><H3>
+CR</H3>
+<PRE>
+public static final java.lang.String <B>CR</B></PRE>
+<DL>
+<DL>
+</DL>
+</DL>
+<HR>
+
+<A NAME="LF"><!-- --></A><H3>
+LF</H3>
+<PRE>
+public static final java.lang.String <B>LF</B></PRE>
+<DL>
+<DL>
+</DL>
+</DL>
+<HR>
+
+<A NAME="SPACE"><!-- --></A><H3>
+SPACE</H3>
+<PRE>
+public static final java.lang.String <B>SPACE</B></PRE>
+<DL>
+<DL>
+</DL>
+</DL>
+
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+
+<A NAME="constructor_detail"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="1"><FONT SIZE="+2">
+<B>Constructor Detail</B></FONT></TH>
+</TR>
+</TABLE>
+
+<A NAME="ContentFormatter()"><!-- --></A><H3>
+ContentFormatter</H3>
+<PRE>
+public <B>ContentFormatter</B>()</PRE>
+<DL>
+</DL>
+
+<!-- ============ METHOD DETAIL ========== -->
+
+<A NAME="method_detail"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="1"><FONT SIZE="+2">
+<B>Method Detail</B></FONT></TH>
+</TR>
+</TABLE>
+
+<A NAME="getLcdProperties()"><!-- --></A><H3>
+getLcdProperties</H3>
+<PRE>
+public <A HREF="../../../../../com/rapplogic/droplet/framework/LcdProperties.html" title="class in com.rapplogic.droplet.framework">LcdProperties</A> <B>getLcdProperties</B>()</PRE>
+<DL>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setLcdProperties(com.rapplogic.droplet.framework.LcdProperties)"><!-- --></A><H3>
+setLcdProperties</H3>
+<PRE>
+public void <B>setLcdProperties</B>(<A HREF="../../../../../com/rapplogic/droplet/framework/LcdProperties.html" title="class in com.rapplogic.droplet.framework">LcdProperties</A>&nbsp;lcdProperties)</PRE>
+<DL>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getPaginationRules()"><!-- --></A><H3>
+getPaginationRules</H3>
+<PRE>
+public <A HREF="../../../../../com/rapplogic/droplet/framework/text/PaginationRules.html" title="class in com.rapplogic.droplet.framework.text">PaginationRules</A> <B>getPaginationRules</B>()</PRE>
+<DL>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setPaginationRules(com.rapplogic.droplet.framework.text.PaginationRules)"><!-- --></A><H3>
+setPaginationRules</H3>
+<PRE>
+public void <B>setPaginationRules</B>(<A HREF="../../../../../com/rapplogic/droplet/framework/text/PaginationRules.html" title="class in com.rapplogic.droplet.framework.text">PaginationRules</A>&nbsp;paginationRules)</PRE>
+<DL>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getInstance()"><!-- --></A><H3>
+getInstance</H3>
+<PRE>
+public static <A HREF="../../../../../com/rapplogic/droplet/framework/text/ContentFormatter.html" title="class in com.rapplogic.droplet.framework.text">ContentFormatter</A> <B>getInstance</B>()</PRE>
+<DL>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getContinuationCharSize()"><!-- --></A><H3>
+getContinuationCharSize</H3>
+<PRE>
+public int <B>getContinuationCharSize</B>()</PRE>
+<DL>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setContinuationCharSize(int)"><!-- --></A><H3>
+setContinuationCharSize</H3>
+<PRE>
+public void <B>setContinuationCharSize</B>(int&nbsp;continuationCharSize)</PRE>
+<DL>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getEffectivePageSize()"><!-- --></A><H3>
+getEffectivePageSize</H3>
+<PRE>
+public int <B>getEffectivePageSize</B>()</PRE>
+<DL>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getFirstPage(java.lang.String)"><!-- --></A><H3>
+getFirstPage</H3>
+<PRE>
+public <A HREF="../../../../../com/rapplogic/droplet/framework/text/Page.html" title="class in com.rapplogic.droplet.framework.text">Page</A> <B>getFirstPage</B>(java.lang.String&nbsp;text)</PRE>
+<DL>
+<DD>Return only the first page
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>text</CODE> - 
+<DT><B>Returns:</B><DD></DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="format(java.lang.String)"><!-- --></A><H3>
+format</H3>
+<PRE>
+public <A HREF="../../../../../com/rapplogic/droplet/framework/text/IContent.html" title="interface in com.rapplogic.droplet.framework.text">IContent</A> <B>format</B>(java.lang.String&nbsp;text)</PRE>
+<DL>
+<DD>Parses a arbitrary, unbounded string of text, into a sequence of Pages, represented
+ by an instance of IContent. 
+ <p/>
+ This method preserves line feed (LF) characters but strips all carriage returns and
+ Multibyte (unicode) characters.
+ <p/>
+ See PaginationRules for info on how to affect the formatting of content.
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>text</CODE> - <DD><CODE>maxSize</CODE> - 
+<DT><B>Returns:</B><DD></DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="main(java.lang.String[])"><!-- --></A><H3>
+main</H3>
+<PRE>
+public static void <B>main</B>(java.lang.String[]&nbsp;args)
+                 throws java.io.IOException</PRE>
+<DL>
+<DD><DL>
+
+<DT><B>Throws:</B>
+<DD><CODE>java.io.IOException</CODE></DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="chop(java.lang.String)"><!-- --></A><H3>
+chop</H3>
+<PRE>
+public static <A HREF="../../../../../com/rapplogic/droplet/framework/text/WordList.html" title="class in com.rapplogic.droplet.framework.text">WordList</A> <B>chop</B>(java.lang.String&nbsp;text)</PRE>
+<DL>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="cleanseInput(java.lang.String)"><!-- --></A><H3>
+cleanseInput</H3>
+<PRE>
+public static java.lang.String <B>cleanseInput</B>(java.lang.String&nbsp;text)</PRE>
+<DL>
+<DD>Removes characters that are not supported on a standard LCD
+ For example: multibyte characters
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>text</CODE> - 
+<DT><B>Returns:</B><DD></DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="removeCarriageReturns(java.lang.String)"><!-- --></A><H3>
+removeCarriageReturns</H3>
+<PRE>
+public static java.lang.String <B>removeCarriageReturns</B>(java.lang.String&nbsp;text)</PRE>
+<DL>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="removeLineFeeds(java.lang.String)"><!-- --></A><H3>
+removeLineFeeds</H3>
+<PRE>
+public static java.lang.String <B>removeLineFeeds</B>(java.lang.String&nbsp;text)</PRE>
+<DL>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="removeMultiByteCharacters(java.lang.String)"><!-- --></A><H3>
+removeMultiByteCharacters</H3>
+<PRE>
+public static java.lang.String <B>removeMultiByteCharacters</B>(java.lang.String&nbsp;s)</PRE>
+<DL>
+<DD>LCDs generally only support ASCII and a limited number of extended characters
+ More importantly however, the XBee can only single byte characters.
+ This method will cleanse the string of multibyte characters, such as fancy quotes
+ that would otherwise cause an error during send.
+ Multibyte chars are replace with a ?
+ <p/>
+ This does not imply that the LCD can supports chars between 128 and 255, and
+ it probably can't.  A more sophisticated approach would be to find the ASCII
+ equivalent, if it exists.  
+ <p/>
+ This method will make some reasonable replacements of unicode characters,
+ such as fancy quotes, dashes etc, but is not nearly comprehensive.
+ 
+ TODO first detect if text contains multibyte before creating StringBuilder
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>s</CODE> - 
+<DT><B>Returns:</B><DD></DL>
+</DD>
+</DL>
+<!-- ========= END OF CLASS DATA ========= -->
+<HR>
+
+
+<!-- ======= START OF BOTTOM NAVBAR ====== -->
+<A NAME="navbar_bottom"><!-- --></A>
+<A HREF="#skip-navbar_bottom" title="Skip navigation links"></A>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_bottom_firstrow"><!-- --></A>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
+  <TR ALIGN="center" VALIGN="top">
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Class</B></FONT>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
+</EM>
+</TD>
+</TR>
+
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+&nbsp;<A HREF="../../../../../com/rapplogic/droplet/framework/text/Content.html" title="class in com.rapplogic.droplet.framework.text"><B>PREV CLASS</B></A>&nbsp;
+&nbsp;<A HREF="../../../../../com/rapplogic/droplet/framework/text/IContent.html" title="interface in com.rapplogic.droplet.framework.text"><B>NEXT CLASS</B></A></FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+  <A HREF="../../../../../index.html?com/rapplogic/droplet/framework/text/ContentFormatter.html" target="_top"><B>FRAMES</B></A>  &nbsp;
+&nbsp;<A HREF="ContentFormatter.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
+&nbsp;<SCRIPT type="text/javascript">
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="../../../../../allclasses-noframe.html"><B>All Classes</B></A>');
+  }
+  //-->
+</SCRIPT>
+<NOSCRIPT>
+  <A HREF="../../../../../allclasses-noframe.html"><B>All Classes</B></A>
+</NOSCRIPT>
+
+
+</FONT></TD>
+</TR>
+<TR>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+  SUMMARY:&nbsp;NESTED&nbsp;|&nbsp;<A HREF="#field_summary">FIELD</A>&nbsp;|&nbsp;<A HREF="#constructor_summary">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_summary">METHOD</A></FONT></TD>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+DETAIL:&nbsp;<A HREF="#field_detail">FIELD</A>&nbsp;|&nbsp;<A HREF="#constructor_detail">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_detail">METHOD</A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_bottom"></A>
+<!-- ======== END OF BOTTOM NAVBAR ======= -->
+
+<HR>
+
+</BODY>
+</HTML>

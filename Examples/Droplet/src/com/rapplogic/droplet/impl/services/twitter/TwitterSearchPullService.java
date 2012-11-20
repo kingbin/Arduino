@@ -1,0 +1,64 @@
+/**
+ * Copyright (c) 2009 Andrew Rapp. All rights reserved.
+ *  
+ * This file is part of Droplet.
+ *  
+ * Droplet is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *  
+ * Droplet is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *  
+ * You should have received a copy of the GNU General Public License
+ * along with Droplet.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
+package com.rapplogic.droplet.impl.services.twitter;
+
+import java.util.List;
+
+import javax.xml.parsers.ParserConfigurationException;
+
+import com.rapplogic.droplet.framework.ServiceContext;
+import com.rapplogic.droplet.framework.service.PullService;
+import com.rapplogic.droplet.framework.text.Content;
+import com.rapplogic.droplet.framework.text.IContent;
+import com.rapplogic.xbee.api.XBeeResponse;
+
+/**
+ * Performs searches against the Twitter Search API
+ * 
+ * @author andrew
+ *
+ */
+public class TwitterSearchPullService implements PullService {
+
+	private Twitter twitter;
+	private String searchTerm;
+	
+	public TwitterSearchPullService(String searchTerm) throws ParserConfigurationException {
+		this.twitter = new Twitter();
+		this.searchTerm = searchTerm;
+	}
+	
+	public IContent execute(Integer serviceId, XBeeResponse response, ServiceContext serviceContext) throws Exception {
+		
+		List<Tweet> results = twitter.search(searchTerm);
+		
+		if (results.size() == 0) {
+			return serviceContext.getFormatter().format("no matches");
+		} else {
+			Content content = new Content();
+			
+			for (Tweet tweet : results) {
+				content.getPages().addAll(serviceContext.getFormatter().format(tweet.formatForLcd()).getPages());
+			}
+			
+			return content;
+		}
+	}
+}

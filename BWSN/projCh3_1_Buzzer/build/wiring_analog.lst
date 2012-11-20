@@ -1,0 +1,256 @@
+   1               		.file	"wiring_analog.c"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__CCP__  = 0x34
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+   8               		.global __do_copy_data
+   9               		.global __do_clear_bss
+  17               	.Ltext0:
+  18               		.section	.text.analogReference,"ax",@progbits
+  19               	.global	analogReference
+  21               	analogReference:
+  22               	.LFB7:
+  23               	.LSM0:
+  24               	.LVL0:
+  25               	/* prologue: function */
+  26               	/* frame size = 0 */
+  27               	.LSM1:
+  28 0000 8093 0000 		sts analog_reference,r24
+  29               	/* epilogue start */
+  30               	.LSM2:
+  31 0004 0895      		ret
+  32               	.LFE7:
+  34               		.section	.text.analogRead,"ax",@progbits
+  35               	.global	analogRead
+  37               	analogRead:
+  38               	.LFB8:
+  39               	.LSM3:
+  40               	.LVL1:
+  41               	/* prologue: function */
+  42               	/* frame size = 0 */
+  43 0000 982F      		mov r25,r24
+  44               	.LSM4:
+  45 0002 8E30      		cpi r24,lo8(14)
+  46 0004 00F0      		brlo .L4
+  47 0006 9E50      		subi r25,lo8(-(-14))
+  48               	.LVL2:
+  49               	.L4:
+  50               	.LSM5:
+  51 0008 9770      		andi r25,lo8(7)
+  52 000a 8091 0000 		lds r24,analog_reference
+  53 000e 8295      		swap r24
+  54 0010 880F      		lsl r24
+  55 0012 880F      		lsl r24
+  56 0014 807C      		andi r24,lo8(-64)
+  57 0016 892B      		or r24,r25
+  58 0018 8093 7C00 		sts 124,r24
+  59               	.LSM6:
+  60 001c 8091 7A00 		lds r24,122
+  61 0020 8064      		ori r24,lo8(64)
+  62 0022 8093 7A00 		sts 122,r24
+  63               	.L5:
+  64               	.LSM7:
+  65 0026 8091 7A00 		lds r24,122
+  66 002a 86FD      		sbrc r24,6
+  67 002c 00C0      		rjmp .L5
+  68               	.LSM8:
+  69 002e 2091 7800 		lds r18,120
+  70               	.LVL3:
+  71               	.LSM9:
+  72 0032 4091 7900 		lds r20,121
+  73               	.LVL4:
+  74 0036 942F      		mov r25,r20
+  75               	.LVL5:
+  76 0038 80E0      		ldi r24,lo8(0)
+  77               	.LVL6:
+  78 003a 30E0      		ldi r19,lo8(0)
+  79 003c 282B      		or r18,r24
+  80 003e 392B      		or r19,r25
+  81               	.LVL7:
+  82               	.LSM10:
+  83 0040 C901      		movw r24,r18
+  84               	.LVL8:
+  85               	/* epilogue start */
+  86 0042 0895      		ret
+  87               	.LFE8:
+  89               		.section	.text.analogWrite,"ax",@progbits
+  90               	.global	analogWrite
+  92               	analogWrite:
+  93               	.LFB9:
+  94               	.LSM11:
+  95               	.LVL9:
+  96 0000 1F93      		push r17
+  97 0002 CF93      		push r28
+  98 0004 DF93      		push r29
+  99               	/* prologue: function */
+ 100               	/* frame size = 0 */
+ 101 0006 182F      		mov r17,r24
+ 102 0008 EB01      		movw r28,r22
+ 103               	.LSM12:
+ 104 000a 61E0      		ldi r22,lo8(1)
+ 105               	.LVL10:
+ 106 000c 0E94 0000 		call pinMode
+ 107               	.LVL11:
+ 108               	.LSM13:
+ 109 0010 2097      		sbiw r28,0
+ 110 0012 01F4      		brne .+2
+ 111 0014 00C0      		rjmp .L23
+ 112               	.L9:
+ 113               	.LSM14:
+ 114 0016 CF3F      		cpi r28,255
+ 115 0018 D105      		cpc r29,__zero_reg__
+ 116 001a 01F4      		brne .+2
+ 117 001c 00C0      		rjmp .L20
+ 118               	.L11:
+ 119               	.LBB2:
+ 120               	.LSM15:
+ 121 001e E12F      		mov r30,r17
+ 122 0020 F0E0      		ldi r31,lo8(0)
+ 123               	.LVL12:
+ 124 0022 E050      		subi r30,lo8(-(digital_pin_to_timer_PGM))
+ 125 0024 F040      		sbci r31,hi8(-(digital_pin_to_timer_PGM))
+ 126               	.LVL13:
+ 127               	/* #APP */
+ 128               	 ;  111 "/Applications/Development/Arduino.app/Contents/Resources/Java/hardware/arduino/cores/ardui
+ 129 0026 8491      		lpm r24, Z
+ 130               		
+ 131               	 ;  0 "" 2
+ 132               	.LVL14:
+ 133               	/* #NOAPP */
+ 134               	.LBE2:
+ 135 0028 8330      		cpi r24,lo8(3)
+ 136 002a 01F0      		breq .L15
+ 137 002c 8430      		cpi r24,lo8(4)
+ 138 002e 00F4      		brsh .L19
+ 139 0030 8130      		cpi r24,lo8(1)
+ 140 0032 01F0      		breq .L13
+ 141 0034 8230      		cpi r24,lo8(2)
+ 142 0036 01F4      		brne .L12
+ 143 0038 00C0      		rjmp .L24
+ 144               	.L19:
+ 145 003a 8630      		cpi r24,lo8(6)
+ 146 003c 01F0      		breq .L17
+ 147 003e 8730      		cpi r24,lo8(7)
+ 148 0040 01F0      		breq .L18
+ 149 0042 8430      		cpi r24,lo8(4)
+ 150 0044 01F4      		brne .L12
+ 151 0046 00C0      		rjmp .L25
+ 152               	.L13:
+ 153               	.LSM16:
+ 154 0048 84B5      		in r24,68-32
+ 155               	.LVL15:
+ 156 004a 8068      		ori r24,lo8(-128)
+ 157 004c 84BD      		out 68-32,r24
+ 158               	.LSM17:
+ 159 004e C7BD      		out 71-32,r28
+ 160 0050 00C0      		rjmp .L21
+ 161               	.LVL16:
+ 162               	.L24:
+ 163               	.LSM18:
+ 164 0052 84B5      		in r24,68-32
+ 165               	.LVL17:
+ 166 0054 8062      		ori r24,lo8(32)
+ 167 0056 84BD      		out 68-32,r24
+ 168               	.LSM19:
+ 169 0058 C8BD      		out 72-32,r28
+ 170 005a 00C0      		rjmp .L21
+ 171               	.LVL18:
+ 172               	.L15:
+ 173               	.LSM20:
+ 174 005c 8091 8000 		lds r24,128
+ 175               	.LVL19:
+ 176 0060 8068      		ori r24,lo8(-128)
+ 177 0062 8093 8000 		sts 128,r24
+ 178               	.LSM21:
+ 179 0066 D093 8900 		sts (136)+1,r29
+ 180 006a C093 8800 		sts 136,r28
+ 181 006e 00C0      		rjmp .L21
+ 182               	.LVL20:
+ 183               	.L25:
+ 184               	.LSM22:
+ 185 0070 8091 8000 		lds r24,128
+ 186               	.LVL21:
+ 187 0074 8062      		ori r24,lo8(32)
+ 188 0076 8093 8000 		sts 128,r24
+ 189               	.LSM23:
+ 190 007a D093 8B00 		sts (138)+1,r29
+ 191 007e C093 8A00 		sts 138,r28
+ 192 0082 00C0      		rjmp .L21
+ 193               	.LVL22:
+ 194               	.L17:
+ 195               	.LSM24:
+ 196 0084 8091 B000 		lds r24,176
+ 197               	.LVL23:
+ 198 0088 8068      		ori r24,lo8(-128)
+ 199 008a 8093 B000 		sts 176,r24
+ 200               	.LSM25:
+ 201 008e C093 B300 		sts 179,r28
+ 202 0092 00C0      		rjmp .L21
+ 203               	.LVL24:
+ 204               	.L18:
+ 205               	.LSM26:
+ 206 0094 8091 B000 		lds r24,176
+ 207               	.LVL25:
+ 208 0098 8062      		ori r24,lo8(32)
+ 209 009a 8093 B000 		sts 176,r24
+ 210               	.LSM27:
+ 211 009e C093 B400 		sts 180,r28
+ 212 00a2 00C0      		rjmp .L21
+ 213               	.LVL26:
+ 214               	.L12:
+ 215               	.LSM28:
+ 216 00a4 C038      		cpi r28,128
+ 217 00a6 D105      		cpc r29,__zero_reg__
+ 218 00a8 04F4      		brge .L20
+ 219               	.LVL27:
+ 220               	.L23:
+ 221               	.LSM29:
+ 222 00aa 812F      		mov r24,r17
+ 223               	.LVL28:
+ 224 00ac 60E0      		ldi r22,lo8(0)
+ 225 00ae 00C0      		rjmp .L22
+ 226               	.LVL29:
+ 227               	.L20:
+ 228               	.LSM30:
+ 229 00b0 812F      		mov r24,r17
+ 230               	.LVL30:
+ 231 00b2 61E0      		ldi r22,lo8(1)
+ 232               	.LVL31:
+ 233               	.L22:
+ 234 00b4 0E94 0000 		call digitalWrite
+ 235               	.LVL32:
+ 236               	.L21:
+ 237               	/* epilogue start */
+ 238               	.LSM31:
+ 239 00b8 DF91      		pop r29
+ 240 00ba CF91      		pop r28
+ 241               	.LVL33:
+ 242 00bc 1F91      		pop r17
+ 243 00be 0895      		ret
+ 244               	.LFE9:
+ 246               	.global	analog_reference
+ 247               		.section	.data.analog_reference,"aw",@progbits
+ 250               	analog_reference:
+ 251 0000 01        		.byte	1
+ 292               	.Letext0:
+DEFINED SYMBOLS
+                            *ABS*:00000000 wiring_analog.c
+/var/folders/6v/2vwt01v529l7cbx7ts4b06bm0000gn/T//ccsKnZId.s:2      *ABS*:0000003f __SREG__
+/var/folders/6v/2vwt01v529l7cbx7ts4b06bm0000gn/T//ccsKnZId.s:3      *ABS*:0000003e __SP_H__
+/var/folders/6v/2vwt01v529l7cbx7ts4b06bm0000gn/T//ccsKnZId.s:4      *ABS*:0000003d __SP_L__
+/var/folders/6v/2vwt01v529l7cbx7ts4b06bm0000gn/T//ccsKnZId.s:5      *ABS*:00000034 __CCP__
+/var/folders/6v/2vwt01v529l7cbx7ts4b06bm0000gn/T//ccsKnZId.s:6      *ABS*:00000000 __tmp_reg__
+/var/folders/6v/2vwt01v529l7cbx7ts4b06bm0000gn/T//ccsKnZId.s:7      *ABS*:00000001 __zero_reg__
+/var/folders/6v/2vwt01v529l7cbx7ts4b06bm0000gn/T//ccsKnZId.s:21     .text.analogReference:00000000 analogReference
+/var/folders/6v/2vwt01v529l7cbx7ts4b06bm0000gn/T//ccsKnZId.s:250    .data.analog_reference:00000000 analog_reference
+/var/folders/6v/2vwt01v529l7cbx7ts4b06bm0000gn/T//ccsKnZId.s:37     .text.analogRead:00000000 analogRead
+/var/folders/6v/2vwt01v529l7cbx7ts4b06bm0000gn/T//ccsKnZId.s:92     .text.analogWrite:00000000 analogWrite
+
+UNDEFINED SYMBOLS
+__do_copy_data
+__do_clear_bss
+pinMode
+digital_pin_to_timer_PGM
+digitalWrite

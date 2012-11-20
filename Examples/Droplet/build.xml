@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project default="compile" name="Droplet">
+	<property file="build.properties"/>
+	<property name="build.dir" value="build"/>
+	<property name="src.dir" value="src"/>
+	<property name="lib.dir" value="lib"/>
+	<property name="dist.dir" value="dist"/>
+	<property name="javadoc.dir" value="docs/api"/>
+	<property name="release" value="0.1"/>
+
+   	<path id="compile-classpath">
+		<fileset dir="${lib.dir}">
+			<include name="**/*.jar"/>
+		</fileset>
+	</path>
+	
+	<target name="init">
+		<mkdir dir="${build.dir}"/>
+		<mkdir dir="${dist.dir}"/>
+		<mkdir dir="${javadoc.dir}"/>
+	</target>
+	
+	<target name="compile" depends="init">
+
+    	<available property="jdk1.3+" classname="java.lang.StrictMath"/>
+    	<available property="jdk1.4+" classname="java.lang.CharSequence"/>
+    	<available property="jdk1.5+" classname="java.lang.Readable"/>
+    
+  		<fail unless="jdk1.5+" message="This software requires Java 1.5.  Please obtain the Java 1.5 SDK, update your JAVA_HOME, and try again"/>
+  		
+		<javac 
+			classpathref="compile-classpath" 
+			debug="true" 
+			destdir="${build.dir}" 
+			srcdir="${src.dir}" 
+			failonerror="true">
+			<include name="*/**"/>
+		</javac>
+	</target>
+	
+	<target name="dist" depends="compile,javadoc">
+		
+		<jar basedir="${build.dir}" destfile="${dist.dir}/droplet-${release}.jar"/>
+		
+		<!-- copy thirdparty libs -->
+		<copy todir="${dist.dir}/lib">
+			<fileset dir="${lib.dir}">
+				<include name="*.jar"/>
+			</fileset>
+		</copy>
+
+		<!-- copy rxtx native lib -->
+		<copy todir="${dist.dir}">
+			<fileset dir=".">
+				<include name="*.jnilib"/>
+				<include name="*.dll"/>
+				<include name="*.so"/>
+				<include name=".classpath"/>
+				<include name=".project"/>
+				<include name="COPYING"/>
+			</fileset>
+		</copy>
+		
+		<copy file="log4j.properties" todir="${dist.dir}"/>
+
+		<copy todir="${dist.dir}/src">
+			<fileset dir="src">
+				<exclude name="svn*"/>
+			</fileset>
+		</copy>
+				
+		<zip basedir="${dist.dir}" destfile="droplet-${release}.zip"/>
+	</target>
+	
+	<target name="javadoc">
+		  <javadoc sourcepath="src"
+		  		   classpathref="compile-classpath" 
+		           destdir="${javadoc.dir}"
+		           author="true"
+				   additionalparam="-notimestamp"
+		           version="true">
+		  </javadoc>
+	</target>
+	
+	<target name="clean">
+		<delete includeEmptyDirs="yes" failonerror="no">
+			<fileset dir="${build.dir}" includes="**/*"/>
+			<fileset dir="${dist.dir}" includes="**/*"/>
+			<fileset dir="${javadoc.dir}" includes="**/*"/>
+		</delete>
+	</target>
+		
+</project>

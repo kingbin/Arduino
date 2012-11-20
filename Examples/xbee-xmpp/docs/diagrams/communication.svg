@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="1052.3622"
+   height="744.09448"
+   id="svg2"
+   sodipodi:version="0.32"
+   inkscape:version="0.46"
+   version="1.0"
+   sodipodi:docname="communication.svg"
+   inkscape:output_extension="org.inkscape.output.svg.inkscape">
+  <defs
+     id="defs4">
+    <inkscape:perspective
+       sodipodi:type="inkscape:persp3d"
+       inkscape:vp_x="0 : 526.18109 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_z="744.09448 : 526.18109 : 1"
+       inkscape:persp3d-origin="372.04724 : 350.78739 : 1"
+       id="perspective10" />
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     gridtolerance="10000"
+     guidetolerance="10"
+     objecttolerance="10"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.98994949"
+     inkscape:cx="441.46223"
+     inkscape:cy="129.94204"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1254"
+     inkscape:window-height="713"
+     inkscape:window-x="41"
+     inkscape:window-y="26" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <rect
+       style="opacity:1;fill:#ff9955;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.99300003;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect2383"
+       width="575.7644"
+       height="98.571434"
+       x="35.654812"
+       y="102.66591"
+       rx="9.5910149"
+       ry="9.5910158" />
+    <text
+       xml:space="preserve"
+       style="font-size:16px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       x="46.635227"
+       y="123.99297"
+       id="text2385"><tspan
+         sodipodi:role="line"
+         id="tspan2387"
+         x="46.635227"
+         y="123.99297">gateway</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:16px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       x="43.436562"
+       y="161.23647"
+       id="text2389"><tspan
+         sodipodi:role="line"
+         x="43.436562"
+         y="161.23647"
+         id="tspan2448">XBeeResponse                    -&gt; getPacketBytes() -&gt; formatByteArrayAsHexString() -&gt;</tspan><tspan
+         sodipodi:role="line"
+         x="43.436562"
+         y="181.23647"
+         id="tspan2460">(e.g. RxResponseIoSample)                                      (e.g. 1baf56234324)</tspan><tspan
+         sodipodi:role="line"
+         x="43.436562"
+         y="201.23647"
+         id="tspan2458" /><tspan
+         sodipodi:role="line"
+         x="43.436562"
+         y="221.23647"
+         id="tspan2456" /></text>
+    <g
+       id="g2403"
+       transform="translate(133.34014,-19.192899)">
+      <path
+         id="path2393"
+         d="M 619.00878,165.03893 C 617.95886,148.39336 636.64184,139.33301 650.18283,132.96395 C 656.80673,129.84837 676.16121,128.09406 676.16121,138.66617 C 676.16121,147.55324 698.45231,137.47052 704.73742,144.36839 C 712.00851,152.34836 718.11606,163.75606 706.6858,170.02837 C 704.38562,171.29059 727.7888,163.25212 739.80823,176.44336 C 757.40123,195.75156 716.27369,219.24757 704.73742,222.06112 C 689.63519,225.74437 673.21104,220.11612 661.8731,226.33778 C 645.44799,235.35101 632.13848,225.93342 624.85392,209.9439 C 621.78981,203.21824 626.8774,197.11391 618.35932,197.11391 C 608.80349,197.11391 604.07122,185.87182 604.07122,177.86892 C 604.07122,173.35054 608.7811,171.09467 609.91635,168.60282 C 610.72132,166.83591 616.59201,165.03893 619.00878,165.03893 z"
+         style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.99999994px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      <text
+         id="text2395"
+         y="184.46997"
+         x="651.5484"
+         style="font-size:16px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+         xml:space="preserve"><tspan
+           y="184.46997"
+           x="651.5484"
+           id="tspan2397"
+           sodipodi:role="line">xmpp</tspan></text>
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-size:16px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       x="700.03571"
+       y="203.66287"
+       id="text2399"><tspan
+         sodipodi:role="line"
+         id="tspan2401"
+         x="700.03571"
+         y="203.66287" /></text>
+    <rect
+       style="opacity:1;fill:#ff9955;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.99300003;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect2408"
+       width="565.68542"
+       height="165.66502"
+       x="24.243647"
+       y="280.43448"
+       rx="9.5910149"
+       ry="9.5910158" />
+    <text
+       xml:space="preserve"
+       style="font-size:16px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       x="48.487343"
+       y="307.70859"
+       id="text2410"><tspan
+         sodipodi:role="line"
+         id="tspan2412"
+         x="48.487343"
+         y="307.70859">client converts hex string back into XBeeResponse</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:16px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       x="43.436562"
+       y="332.96237"
+       id="text2414"><tspan
+         sodipodi:role="line"
+         id="tspan2416"
+         x="43.436562"
+         y="332.96237">decodeMessage() -&gt; packet (int[]) -&gt;</tspan><tspan
+         sodipodi:role="line"
+         x="43.436562"
+         y="352.96237"
+         id="tspan2422">    IntArrayInputStream in = new IntArrayInputStream(packet);</tspan><tspan
+         sodipodi:role="line"
+         x="43.436562"
+         y="372.96237"
+         id="tspan2428">          PacketStream ps = new PacketStream(in);</tspan><tspan
+         sodipodi:role="line"
+         x="43.436562"
+         y="392.96237"
+         id="tspan2432">                      XBeeResponse response = ps.parsePacket() -&gt;</tspan><tspan
+         sodipodi:role="line"
+         x="43.436562"
+         y="412.96237"
+         id="tspan2470">                             (e.g. RxResponseIoSample)</tspan><tspan
+         sodipodi:role="line"
+         x="43.436562"
+         y="432.96237"
+         id="tspan2462"> </tspan><tspan
+         sodipodi:role="line"
+         x="43.436562"
+         y="452.96237"
+         id="tspan2418" /></text>
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="M 745.934,159.21616 C 789.11853,170.13565 909.38277,176.86781 919.2342,229.92684 C 923.24667,251.5377 660.46989,254.1705 640.15335,254.1705 C 591.76431,254.1705 436.59817,267.97796 379.07772,236.9979 C 376.87348,235.81072 228.73003,233.78745 210.27882,231.94714 C 167.04113,227.63465 120.25394,229.42122 80.866329,247.09943 C 66.752763,253.43397 47.458868,258.93569 41.479919,272.35324 C 39.784742,276.15745 42.029284,282.90016 42.605245,285.48523"
+       id="path2420" />
+    <text
+       xml:space="preserve"
+       style="font-size:16px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       x="546.49255"
+       y="408.72385"
+       id="text2464"><tspan
+         sodipodi:role="line"
+         id="tspan2466"
+         x="546.49255"
+         y="408.72385"></tspan><tspan
+         sodipodi:role="line"
+         id="tspan2468" /></text>
+    <rect
+       style="opacity:1;fill:#ff9955;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.99299997;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect2583"
+       width="192.93913"
+       height="83.842659"
+       x="39.39595"
+       y="513.77972"
+       rx="9.5910149"
+       ry="9.5910158" />
+    <text
+       xml:space="preserve"
+       style="font-size:16px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       x="73.741135"
+       y="529.94214"
+       id="text2585"><tspan
+         sodipodi:role="line"
+         id="tspan2587"
+         x="73.741135"
+         y="529.94214">client</tspan><tspan
+         sodipodi:role="line"
+         x="73.741135"
+         y="549.94214"
+         id="tspan2589" /><tspan
+         sodipodi:role="line"
+         x="73.741135"
+         y="569.94214"
+         id="tspan2591">XBeeXmppClient (instance).sendXBeeRequest(new ZNetRemoteAtRequest(..)) -&gt; </tspan><tspan
+         sodipodi:role="line"
+         x="73.741135"
+         y="589.94214"
+         id="tspan2593">                request.getXBeePacket().getPacket() -&gt; formatByteArrayAsHexString() -&gt;  -&gt;</tspan></text>
+    <rect
+       style="opacity:1;fill:#ff9955;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.99299997;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect2595"
+       width="680.84283"
+       height="78.791901"
+       x="30.304577"
+       y="641.0589"
+       rx="9.5910149"
+       ry="9.5910158" />
+    <text
+       xml:space="preserve"
+       style="font-size:16px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       x="71.720833"
+       y="661.26196"
+       id="text2597"><tspan
+         sodipodi:role="line"
+         id="tspan2599"
+         x="71.720833"
+         y="661.26196">gateway</tspan><tspan
+         sodipodi:role="line"
+         x="71.720833"
+         y="681.26196"
+         id="tspan2601">XBeePacket.verify(packet) -&gt; xbee.sendPacket(packet) -&gt;</tspan><tspan
+         sodipodi:role="line"
+         x="71.720833"
+         y="701.26196"
+         id="tspan2611">               (packet is verified against checksum and sent to coordinator))</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:16px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       x="33.335033"
+       y="45.06892"
+       id="text2603"><tspan
+         sodipodi:role="line"
+         id="tspan2605"
+         x="33.335033"
+         y="45.06892">gateway to client:</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:16px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       x="34.345188"
+       y="483.47513"
+       id="text2607"><tspan
+         sodipodi:role="line"
+         id="tspan2609"
+         x="34.345188"
+         y="483.47513">client to gateway</tspan></text>
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="M 748.52304,583.48023 C 748.52304,589.03352 760.34909,584.05173 764.68548,587.52084 C 778.15955,598.3001 774.48792,598.27698 761.65502,604.69343 C 733.62501,618.70844 668.8666,620.85587 636.3961,620.85587 C 627.52165,620.85587 621.39727,619.88408 613.1626,617.82541 C 604.92562,615.76617 595.36254,616.81526 586.89863,616.81526 C 566.0709,616.81526 544.44294,618.83557 523.25902,618.83557 C 509.65904,618.83557 496.68087,622.87618 482.85292,622.87618 C 467.9963,622.87618 453.03468,621.86602 438.4062,621.86602 C 423.111,621.86602 408.27292,622.87618 392.94934,622.87618 C 379.51009,622.87618 367.23925,622.38086 354.56354,619.84572 C 335.28575,615.99016 313.35388,623.88633 293.95439,623.88633 C 274.13776,623.88633 253.69889,624.60996 236.3757,618.83557 C 226.41726,615.51609 176.68902,620.85587 161.62441,620.85587 C 138.65437,620.85587 116.17864,620.34802 93.944187,625.90663 C 82.35156,628.80479 68.485368,626.91679 56.568543,626.91679 C 46.340292,626.91679 33.942299,624.28922 26.263966,631.96755 C 20.750228,637.48129 18.060042,640.53958 16.162441,648.12999 C 14.120909,656.29612 17.160692,658.23152 24.243661,658.23152 C 26.71825,658.23152 27.228174,658.82842 29.294424,659.24167"
+       id="path2615" />
+    <text
+       xml:space="preserve"
+       style="font-size:16px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       x="170.71577"
+       y="161.23647"
+       id="text2617"><tspan
+         sodipodi:role="line"
+         id="tspan2619"
+         x="170.71577"
+         y="161.23647">   </tspan></text>
+  </g>
+</svg>
